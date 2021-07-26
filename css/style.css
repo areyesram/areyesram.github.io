@@ -2,7 +2,25 @@ body {
     font-family: "Open Sans";
 }
 
+h1 {
+    font-family: Montserrat;
+    font-size: 3em;
+}
+
+h2,
+h3 {
+    font-weight: bold;
+}
+h2 #code {
+    font-family: "Roboto Mono";
+    color: darkcyan;
+}
+
 td.link {
     color: red;
     text-decoration: underline;
+}
+
+#sessions ul {
+    list-style-image: url("../images/youtube.png");
 }

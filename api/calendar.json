@@ -3,8 +3,16 @@
     { "Date": 1613800800, "Code": "PnP-Pat" },
     { "Date": 1614405600, "Code": "PnP-Ant" },
     { "Date": 1615010400, "Code": "PnP-Ref" },
-    { "Date": 1615615200, "Code": "SQL-1" },
-    { "Date": 1616220000, "Code": "SQL-2" },
+    {
+        "Date": 1615615200,
+        "Code": "SQL-1",
+        "Session": " https://www.youtube.com/watch?v=RQULNNAC1MY&list=PL_MKkGXt-v2Kcz22FjQTlnE33CfCOXKOJ&ab_channel=AlejandroReyes"
+    },
+    {
+        "Date": 1616220000,
+        "Code": "SQL-2",
+        "Session": "https://www.youtube.com/watch?v=VAJb_UAIPOc&list=PL_MKkGXt-v2JtMlryboZ2Y1_M6eUohfOc&ab_channel=AlejandroReyes"
+    },
     { "Date": 1616824800, "Code": "SQL-3" },
     { "Date": 1618030800, "Code": "Web-HTML" },
     { "Date": 1618635600, "Code": "Web-JS1" },

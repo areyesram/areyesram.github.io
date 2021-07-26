@@ -1,20 +1,20 @@
 [
     { "Code": "CB-Img", "Title": "Edición de imágenes con GIMP e Inkscape" },
     { "Code": "CB-XL", "Title": "Excel" },
-    { "Code": "ES-101", "Title": "Introducción al stack de Elastic", "PreReq": "-" },
+    { "Code": "ES-101", "Title": "Introducción al stack de Elastic" },
     {
         "Code": "ES-Adm",
-        "Title": "Administración",
-        "Topics": "Crear un cluster\\nAdministrar indices\\nSnapshots (backup/restore)"
+        "Title": "Administración de Elasticsearch",
+        "Topics": ["Crear un cluster", "Administrar indices", "Snapshots (backup/restore)"]
     },
     { "Code": "ES-Bas", "Title": "Búsquedas básicas" },
     { "Code": "ES-BI", "Title": "Analytics (business intelligence)" },
-    { "Code": "ES-ETL", "Title": "Ingesta de datos", "Topics": "Bulk indexing\\nLogstash\\nBeats" },
+    { "Code": "ES-ETL", "Title": "Ingesta de datos", "Topics": ["Bulk indexing", "Logstash", "Beats"] },
     { "Code": "ES-FTS", "Title": "Full-text search" },
     {
         "Code": "ES-Kib",
         "Title": "Kibana",
-        "Topics": "Consola de desarrollo\\nData discovery\\nVisualizaciones\\nDashboards"
+        "Topics": ["Consola de desarrollo", "Data discovery", "Visualizaciones", "Dashboards"]
     },
     { "Code": "Lnx-101", "Title": "Introducción a Linux" },
     { "Code": "Lnx-Bash", "Title": "Linux Bash scripting" },
@@ -26,7 +26,7 @@
     {
         "Code": "NET-GDI",
         "Title": "Manipulación de imágenes a través de GDI+",
-        "Topics": "Gráficas en Windows Forms\\nPrimitivas de dibujo\\nManipulación de imágenes"
+        "Topics": ["Gráficas en Windows Forms", "Primitivas de dibujo", "Manipulación de imágenes"]
     },
     { "Code": "NET-LINQ", "Title": ".NET - LINQ" },
     { "Code": "NET-MVC1", "Title": ".NET - ASP.NET MVC (parte 1)" },
@@ -40,71 +40,133 @@
     { "Code": "NET-UT", "Title": "Pruebas unitarias en C#" },
     { "Code": "NET-WCF", "Title": ".NET - ASP.NET Web Services / WCF" },
     { "Code": "NET-Win", "Title": ".NET - Aplicaciones Windows Forms." },
-    { "Code": "Node-101", "Title": "Node.js básico", "PreReq": "Web-JS2" },
-    { "Code": "Node-API", "Title": "Node.js REST API", "PreReq": "Node-Mod" },
-    { "Code": "Node-Mod", "Title": "Node.js Módulos", "PreReq": "Node-101" },
+    { "Code": "Node-101", "Title": "Node.js básico", "PreReq": ["Web-JS2"] },
+    { "Code": "Node-API", "Title": "Node.js REST API", "PreReq": ["Node-Mod"] },
+    { "Code": "Node-Mod", "Title": "Node.js Módulos", "PreReq": ["Node-101"] },
     { "Code": "Node-UT", "Tópico": "", "Title": "Pruebas unitarias en Node.js" },
     {
         "Code": "Node-Web",
         "Title": "Node.js Web App (Express + Pug)",
-        "PreReq": "Node-API",
-        "Topics": "Express (routers)\\nMiddlewares\\nPug (view, layout, mixins)"
+        "PreReq": ["Node-API"],
+        "Topics": ["Express (routers)", "Middlewares", "Pug (view, layout, mixins)"]
     },
     {
         "Code": "PnP-Ant",
         "Title": "Smells y Antipatrones",
-        "PreReq": "PnP-OOP",
-        "Topics": "Definición e impactos\\nTipos de antipatrones\\nEjemplos de antipatrones\\nCoding smells\\nEjemplos de código\\nIntroducción al refactoring",
-        "Software": "Visual Studio [Developer, Pro] 2008 o superior.\\n- Características: Desarrollo C#"
+        "PreReq": ["PnP-OOP"],
+        "Topics": [
+            "Definición e impactos",
+            "Tipos de antipatrones",
+            "Ejemplos de antipatrones",
+            "Coding smells",
+            "Ejemplos de código",
+            "Introducción al refactoring"
+        ],
+        "Software": ["Visual Studio [Developer, Pro] 2008 o superior., Características: Desarrollo C#"]
     },
     {
         "Code": "PnP-g11n",
         "Title": "Globalización",
-        "Topics": "Localización y localización\\nCódigos de caracteres\\nTraducciones y alfabetos\\nFormatos de fecha y moneda\\nZonas horarias"
+        "Topics": [
+            "Localización y localización",
+            "Códigos de caracteres",
+            "Traducciones y alfabetos",
+            "Formatos de fecha y moneda",
+            "Zonas horarias"
+        ]
     },
     {
         "Code": "PnP-OOP",
         "Title": "Principios de OOP",
-        "PreReq": "-",
-        "Topics": "Estándares de programación\\nObjetivos de diseño\\nPrincipios de programación\\nACID\\nSOLID\\nDRY, KISS, YAGNI\\nSOC",
-        "Software": "(Opcional)\\nEditor de texto o IDE\\n- Visual Studio 2008 o superior\\n- ó Visual Studio Code\\n- ó algún otro.\\n"
+
+        "Topics": [
+            "Estándares de programación",
+            "Objetivos de diseño",
+            "Principios de programación",
+            "ACID",
+            "SOLID",
+            "DRY, KISS, YAGNI",
+            "SOC"
+        ],
+        "Software": [
+            "(Opcional)",
+            "Editor de texto o IDE",
+            "- Visual Studio 2008 o superior",
+            "- ó Visual Studio Code",
+            "- ó algún otro."
+        ]
     },
     {
         "Code": "PnP-Pat",
         "Title": "Patrones de diseño",
-        "PreReq": "PnP-OOP",
-        "Topics": "Origen y Justificación\\nVentajas y Limitaciones\\nDefinición de un patrón\\nTipos de patrones\\nEjemplos de patrones\\nEjemplos en C#",
-        "Software": "Visual Studio [Developer, Pro] 2008 o superior.\\n- Características: Desarrollo C#"
+        "PreReq": ["PnP-OOP"],
+        "Topics": [
+            "Origen y Justificación",
+            "Ventajas y Limitaciones",
+            "Definición de un patrón",
+            "Tipos de patrones",
+            "Ejemplos de patrones",
+            "Ejemplos en C#"
+        ],
+        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"]
     },
     {
         "Code": "PnP-Ref",
         "Title": "Refactoring",
-        "PreReq": "PnP-Ant",
-        "Topics": "Definición y aplicación\\nCatálogo de refactoring\\nEjemplos prácticos",
-        "Software": "Visual Studio [Developer, Pro] 2008 o superior.\\n- Características: Desarrollo C#"
+        "PreReq": ["PnP-Ant"],
+        "Topics": ["Definición y aplicación", "Catálogo de refactoring", "Ejemplos prácticos"],
+        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"]
     },
     { "Code": "PnP-UML", "Title": "Modelado con UML" },
     { "Code": "Py-101", "Title": "Introducción a Python" },
     {
         "Code": "SQL-1",
         "Title": "SQL Server Básico",
-        "PreReq": "-",
-        "Topics": "Conceptos básicos\\nTipos de datos, Operadores, Funciones\\nComando SELECT, INSERT, UPDATE, DELETE\\nJOINs\\nAgregación",
-        "Software": "SQL Server [Developer, Professional, Express], 2008R2 o superior.\\n- Database engine\\n- Management Studio"
+
+        "Topics": [
+            "Conceptos básicos",
+            "Tipos de datos, Operadores, Funciones",
+            "Comando SELECT, INSERT, UPDATE, DELETE",
+            "JOINs",
+            "Agregación"
+        ],
+        "Software": [
+            "SQL Server [Developer, Professional, Express], 2008R2 o superior, (Database engine, Management Studio)"
+        ]
     },
     {
         "Code": "SQL-2",
         "Title": "SQL Server Intermedio",
-        "PreReq": "SQL-1",
-        "Topics": "Sub-queries\\nVariables\\nControl de flujo\\nStored Procedures\\nVistas, Funciones (UDF)\\nTransacciones",
-        "Software": "SQL Server [Developer, Professional, Express], 2008R2 o superior.\\n- Database engine\\n- Management Studio"
+        "PreReq": ["SQL-1"],
+        "Topics": [
+            "Sub-queries",
+            "Variables",
+            "Control de flujo",
+            "Stored Procedures",
+            "Vistas, Funciones (UDF)",
+            "Transacciones"
+        ],
+        "Software": [
+            "SQL Server [Developer, Professional, Express], 2008R2 o superior.",
+            "- Database engine",
+            "- Management Studio"
+        ]
     },
     {
         "Code": "SQL-3",
         "Title": "SQL Server Avanzado",
-        "PreReq": "SQL-2",
-        "Topics": "Integridad referencial y de datos\\nSeguridad de SQL Server\\nSchema Queries\\nAnálisis de Performance\\n",
-        "Software": "SQL Server [Developer, Professional, Express], 2008R2 o superior.\\n- Database engine\\n- Management Studio"
+        "PreReq": ["SQL-2"],
+        "Topics": [
+            "Integridad referencial y de datos",
+            "Seguridad de SQL Server",
+            "Schema Queries",
+            "Análisis de Performance"
+        ],
+        "Software": [
+            "SQL Server [Developer, Professional, Express], 2008R2 o superior.",
+            "- Database engine",
+            "- Management Studio"
+        ]
     },
     { "Code": "SQL-Adm", "Title": "SQL Server Administración" },
     { "Code": "SQL-CLR", "Title": "CLR Integration en SQL Server" },
@@ -112,30 +174,49 @@
     { "Code": "SQL-FTS", "Title": "SQL Server Full Text Search" },
     { "Code": "SQL-SSIS", "Title": "SQL Server Integration Services" },
     { "Code": "SQL-SSRS", "Title": "SQL Server Reporting Services" },
-    { "Code": "Web-BS", "Title": "Introducción a Bootstrap", "PreReq": "Web-CSS" },
-    { "Code": "Web-CSS", "Title": "CSS", "PreReq": "Web-HTML" },
-    { "Code": "Web-CSS2", "Title": "CSS y SASS", "PreReq": "Web-HTML" },
+    { "Code": "Web-BS", "Title": "Introducción a Bootstrap", "PreReq": ["Web-CSS"] },
+    { "Code": "Web-CSS", "Title": "CSS", "PreReq": ["Web-HTML"] },
+    { "Code": "Web-CSS2", "Title": "CSS y SASS", "PreReq": ["Web-HTML"] },
     {
         "Code": "Web-HTML",
         "Title": "Introducción a HTML",
-        "PreReq": "-",
-        "Topics": "Historia\\nEstructura\\nElementos\\nColores\\nEntidades"
+
+        "Topics": ["Historia", "Estructura", "Elementos", "Colores", "Entidades"]
     },
-    { "Code": "Web-jQ", "Title": "jQuery", "PreReq": "Web-JS1", "Topics": "Manipulación del DOM\\nAJAX\\njQuery UI" },
+    {
+        "Code": "Web-jQ",
+        "Title": "jQuery",
+        "PreReq": ["Web-JS1"],
+        "Topics": ["Manipulación del DOM", "AJAX", "jQuery UI"]
+    },
     {
         "Code": "Web-JS1",
         "Title": "Introducción a JavaScript",
-        "PreReq": "-",
-        "Topics": "Evolución de ECMAScript\\nSintaxis del lenguaje\\nControl de flujo\\nVariables, arreglos y objetos\\nFunciones\\nManipulación del DOM"
+
+        "Topics": [
+            "Evolución de ECMAScript",
+            "Sintaxis del lenguaje",
+            "Control de flujo",
+            "Variables, arreglos y objetos",
+            "Funciones",
+            "Manipulación del DOM"
+        ]
     },
     {
         "Code": "Web-JS2",
         "Title": "JavaScript avanzado",
-        "PreReq": "Web-JS1, Web-HTML",
-        "Topics": "Callbacks y Funciones flecha\\nAJAX\\nOperaciones con Arreglos\\nOperaciones con Objetos\\nClases\\nOperaciones asíncronas"
+        "PreReq": ["Web-JS1", "Web-HTML"],
+        "Topics": [
+            "Callbacks y Funciones flecha",
+            "AJAX",
+            "Operaciones con Arreglos",
+            "Operaciones con Objetos",
+            "Clases",
+            "Operaciones asíncronas"
+        ]
     },
-    { "Code": "Web-Ng1", "Title": "Introducción a Angular", "PreReq": "Web-TS, Node-API" },
-    { "Code": "Web-Ng2", "Title": "Angular - Parte 2", "PreReq": "Web-Ng1" },
-    { "Code": "Web-SASS", "Title": "SASS (SCSS)", "PreReq": "Web-CSS" },
-    { "Code": "Web-TS1", "Title": "Introducción a TypeScript", "PreReq": "Web-JS2" }
+    { "Code": "Web-Ng1", "Title": "Introducción a Angular", "PreReq": ["Web-TS1", "Node-API"] },
+    { "Code": "Web-Ng2", "Title": "Angular - Parte 2", "PreReq": ["Web-Ng1"] },
+    { "Code": "Web-SASS", "Title": "SASS (SCSS)", "PreReq": ["Web-CSS"] },
+    { "Code": "Web-TS1", "Title": "Introducción a TypeScript", "PreReq": ["Web-JS2"] }
 ]
