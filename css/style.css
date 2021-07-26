@@ -22,5 +22,13 @@ td.link {
 }
 
 #sessions ul {
+    list-style-image: url("../images/norec.png");
+}
+
+#sessions ul .rec {
     list-style-image: url("../images/youtube.png");
+}
+
+#sessions ul .fut {
+    list-style-image: url("../images/cal.png");
 }

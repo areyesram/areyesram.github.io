@@ -7,8 +7,8 @@
         {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Open course.html",
-            "file": "/home/alex/GIT/areyesram/areyesram.github.io/course.html"
+            "name": "Open",
+            "file": "${workspaceFolder}/index.html"
         }
     ]
 }
