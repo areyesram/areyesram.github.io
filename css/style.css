@@ -1,3 +1,7 @@
+body {
+    font-family: "Open Sans";
+}
+
 td.link {
     color: red;
     text-decoration: underline;
