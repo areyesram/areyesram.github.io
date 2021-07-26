@@ -131,7 +131,7 @@ function loadCurso() {
                             ul.append($("<li>").append(link));
                         });
                     } else {
-                        ul.append($("<li>").text("Ninguno."));
+                        ul.parent().hide();
                     }
                 }
             });
