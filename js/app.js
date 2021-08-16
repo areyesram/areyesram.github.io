@@ -59,7 +59,13 @@ function fillCalendar() {
                         );
                         b.append(
                             $("<tr>")
-                                .append($("<td>").text(moment(o.Date * 1000).format("YYYY-MM-DD")))
+                                .append(
+                                    $("<td>").text(
+                                        moment(o.Date * 1000).format(
+                                            "YYYY-MM-DD"
+                                        )
+                                    )
+                                )
                                 .append($("<td>").text(o.Code))
                                 .append($("<td>").text(getTopic(o.Code)))
                                 .append(title)
@@ -124,11 +130,26 @@ function loadCurso() {
                     if (sessions && sessions.length) {
                         $.each(sessions, function () {
                             var course = this;
-                            var link = $("<a>")
-                                .attr("href", course.Session)
-                                .attr("target", "_blank")
-                                .text(moment(course.Date * 1000).format("DD [de] MMMM [de] YYYY"));
-                            ul.append($("<li>").append(link));
+                            var date = moment(course.Date * 1000);
+                            var label = date.format("DD [de] MMMM [de] YYYY");
+                            var link;
+                            if (course.Session)
+                                link = $("<a>")
+                                    .attr("href", course.Session)
+                                    .attr("target", "_blank")
+                                    .text(label);
+                            else link = label;
+                            ul.append(
+                                $("<li>")
+                                    .addClass(
+                                        date.toDate() > new Date()
+                                            ? "fut"
+                                            : course.Session
+                                            ? "rec"
+                                            : "norec"
+                                    )
+                                    .append(link)
+                            );
                         });
                     } else {
                         ul.parent().hide();
