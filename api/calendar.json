@@ -30,7 +30,11 @@
     { "Date": 1626498000, "Code": "SQL-Des" },
     { "Date": 1627102800, "Code": "NET-101" },
     { "Date": 1627707600, "Code": "NET-OOP" },
-    { "Date": 1628312400, "Code": "NET-Algo" },
+    {
+        "Date": 1628312400,
+        "Code": "NET-A&S",
+        "Session": "https://www.youtube.com/playlist?list=PL_MKkGXt-v2Kt-TZdWLg89D20tS7MscOX"
+    },
     { "Date": 1628917200, "Code": "NET-Dbg" },
     { "Date": 1629522000, "Code": "NET-ADO" },
     { "Date": 1630126800, "Code": "NET-LINQ" },

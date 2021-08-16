@@ -20,7 +20,7 @@
     { "Code": "Lnx-Bash", "Title": "Linux Bash scripting" },
     { "Code": "NET-101", "Title": "Introduccion a C# y .NET" },
     { "Code": "NET-ADO", "Title": ".NET - ADO.NET" },
-    { "Code": "NET-Algo", "Title": "Algoritmos y estructuras de datos en C#." },
+    { "Code": "NET-A&S", "Title": "Algoritmos y estructuras de datos en C#." },
     { "Code": "NET-COM", "Tópico": "", "Title": "Componentes COM+ en C#" },
     { "Code": "NET-Dbg", "Title": ".NET - Debugging, Logging y manejo de errores." },
     {
