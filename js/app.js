@@ -48,6 +48,10 @@ function fillCalendar() {
             {
                 data: "Code",
                 render: code => (getCourse(code).PreReq || []).join(", ")
+            },
+            {
+                data: "Session",
+                render: session => (session ? `<a href="${session}"><img src="../images/youtube.png" /></a>` : "")
             }
         ],
         language: {
@@ -63,6 +67,7 @@ function fillCalendar() {
             _courses = courses;
             $.ajax({
                 url: "api/calendar.json",
+                cache: false,
                 success: function (data) {
                     var now = moment(new Date()).startOf("day").valueOf() / 1000;
                     data = data.filter(o => ((w & 1) != 0 && o.Date >= now) || ((w & 2) != 0 && o.Date < now));
