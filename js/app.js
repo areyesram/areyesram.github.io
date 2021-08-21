@@ -20,7 +20,7 @@ function fillCourses() {
         }
     });
     $.ajax({
-        url: "api/courses.json",
+        url: "api/courses.json" + _version,
         success: function (data) {
             t.rows.add(data);
             t.draw();
@@ -62,12 +62,11 @@ function fillCalendar() {
     var q = Object.fromEntries(search.entries());
     var w = parseInt(q.w) || 1;
     $.ajax({
-        url: "api/courses.json",
+        url: "api/courses.json" + _version,
         success: function (courses) {
             _courses = courses;
             $.ajax({
-                url: "api/calendar.json",
-                cache: false,
+                url: "api/calendar.json" + _version,
                 success: function (data) {
                     var now = moment(new Date()).startOf("day").valueOf() / 1000;
                     data = data.filter(o => ((w & 1) != 0 && o.Date >= now) || ((w & 2) != 0 && o.Date < now));
@@ -94,7 +93,7 @@ function getCourse(code) {
 function loadCurso() {
     var code = window.location.search.replace(/\?c=(\w+-\w+)/, "$1");
     $.ajax({
-        url: "api/courses.json",
+        url: "api/courses.json" + _version,
         success: function (data) {
             var c = data.find(function (o) {
                 return o.Code == code;
@@ -127,7 +126,7 @@ function loadCurso() {
                 ul.append($("<li>").text("Ninguno."));
             }
             $.ajax({
-                url: "api/calendar.json",
+                url: "api/calendar.json" + _version,
                 success: function (calendar) {
                     var sessions = calendar.filter(function (o) {
                         return o.Code == code;
@@ -157,6 +156,8 @@ function loadCurso() {
     });
 }
 
+var _topics = ["CB", "ES", "Lnx", "NET", "Node", "PnP", "Py", "SQL", "Web"];
+
 function getTopic(code) {
     return {
         CB: "Computación básica",
@@ -173,4 +174,21 @@ function getTopic(code) {
 
 function getTopicCode(code) {
     return code.split("-")[0];
+}
+
+var _version;
+
+function getVersion(fn) {
+    $.ajax({
+        url: "/api/version.json?r=" + Math.floor(new Date().valueOf() / 1000 / 60),
+        cache: false,
+        success: function (data) {
+            if (data.version != 27159298) alert("Nueva versión. Favor de limpiar el cache del navegador.");
+            _version = "?v=" + data.version;
+            fn();
+        },
+        error: function (a, b, c) {
+            debugger;
+        }
+    });
 }
