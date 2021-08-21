@@ -1,36 +1,33 @@
 function fillCourses() {
+    var t = $("#grid").DataTable({
+        columns: [
+            { data: "Code" },
+            {
+                data: "Code",
+                render: code => `<a href="courses-${getTopicCode(code)}.html">${getTopic(code)}</a>`
+            },
+            {
+                data: "Code",
+                render: code => `<a href="course.html?c=${code}">${getCourse(code).Title}</a>`
+            },
+            {
+                data: "Code",
+                render: code => (getCourse(code).PreReq || []).join(", ")
+            }
+        ],
+        language: {
+            url: "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+        }
+    });
     $.ajax({
         url: "api/courses.json",
         success: function (courses) {
-            var t = $("#grid");
-            var b = t.find("tbody");
-            for (var i = 0; i < courses.length; i++) {
-                var o = courses[i];
-                var title = $("<td>").append(
-                    $("<a>")
-                        .attr("href", "course.html#" + o.Code)
-                        .attr("target", "_blank")
-                        .text(o.Title)
-                );
-                var topic = getTopicCode(o.Code);
-                b.append(
-                    $("<tr>")
-                        .append($("<td>").text(o.Code))
-                        .append(
-                            $("<td>").append(
-                                $("<a>")
-                                    .attr("href", "courses-" + topic + ".html")
-                                    .attr("target", "_blank")
-                                    .text(getTopic(o.Code))
-                            )
-                        )
-                        .append(title)
-                        .append($("<td>").text(o.PreReq))
-                );
-            }
-            t.DataTable({
-                language: {
-                    url: "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+            _courses = courses;
+            $.ajax({
+                url: "api/calendar.json",
+                success: function (data) {
+                    t.rows.add(data);
+                    t.draw();
                 }
             });
         }
@@ -38,55 +35,47 @@ function fillCourses() {
 }
 
 function fillCalendar() {
+    var t = $("#grid").DataTable({
+        columns: [
+            {
+                data: "Date",
+                render: date => moment(date * 1000).format("YYYY-MMM-DD")
+            },
+            { data: "Code" },
+            {
+                data: "Code",
+                render: code => `<a href="courses-${getTopicCode(code)}.html">${getTopic(code)}</a>`
+            },
+            {
+                data: "Code",
+                render: code => `<a href="course.html?c=${code}">${getCourse(code).Title}</a>`
+            },
+            {
+                data: "Code",
+                render: code => (getCourse(code).PreReq || []).join(", ")
+            }
+        ],
+        language: {
+            url: "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+        }
+    });
     $.ajax({
         url: "api/courses.json",
-        success: function (courses) {
-            $.ajax({
-                url: "api/calendar.json",
-                success: function (calendar) {
-                    var t = $("#grid");
-                    var b = t.find("tbody");
-                    for (var i = 0; i < calendar.length; i++) {
-                        var o = calendar[i];
-                        var p = courses.find(function (q) {
-                            return o.Code == q.Code;
-                        });
-                        var title = $("<td>").append(
-                            $("<a>")
-                                .attr("href", "course.html#" + o.Code)
-                                .attr("target", "_blank")
-                                .text(p.Title)
-                        );
-                        b.append(
-                            $("<tr>")
-                                .append(
-                                    $("<td>").text(
-                                        moment(o.Date * 1000).format(
-                                            "YYYY-MM-DD"
-                                        )
-                                    )
-                                )
-                                .append($("<td>").text(o.Code))
-                                .append($("<td>").text(getTopic(o.Code)))
-                                .append(title)
-                                .append($("<td>").text(p.PreReq))
-                        );
-                    }
-                    t.DataTable({
-                        language: {
-                            url: "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
-                        }
-                    });
-                }
-            });
+        success: function (data) {
+            t.rows.add(data);
+            t.draw();
         }
     });
 }
 
+function getCourse(code) {
+    return _courses.find(function (o) {
+        return o.Code == code;
+    });
+}
+
 function loadCurso() {
-    var code = window.location.hash;
-    if (code.startsWith("#")) code = code.replace("#", "");
-    else window.location.replace("404.html");
+    var code = window.location.search.replace(/\?c=(\w+-\w+)/, "$1");
     $.ajax({
         url: "api/courses.json",
         success: function (data) {
@@ -134,20 +123,11 @@ function loadCurso() {
                             var label = date.format("DD [de] MMMM [de] YYYY");
                             var link;
                             if (course.Session)
-                                link = $("<a>")
-                                    .attr("href", course.Session)
-                                    .attr("target", "_blank")
-                                    .text(label);
+                                link = $("<a>").attr("href", course.Session).attr("target", "_blank").text(label);
                             else link = label;
                             ul.append(
                                 $("<li>")
-                                    .addClass(
-                                        date.toDate() > new Date()
-                                            ? "fut"
-                                            : course.Session
-                                            ? "rec"
-                                            : "norec"
-                                    )
+                                    .addClass(date.toDate() > new Date() ? "fut" : course.Session ? "rec" : "norec")
                                     .append(link)
                             );
                         });
