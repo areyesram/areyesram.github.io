@@ -33,6 +33,20 @@
     </head>
     <body>
         <h1>Calendario de cursos</h1>
+        <div class="btn-group">
+            <label class="btn btn-sm btn-success active">
+                <input name="when" type="radio" autocomplete="off" value="1" checked />
+                <i class="bi bi-check-lg"></i> Futuros
+            </label>
+            <label class="btn btn-sm btn-secondary">
+                <input name="when" type="radio" autocomplete="off" value="3" />
+                <i class="bi bi-check-lg"></i> Ambos
+            </label>
+            <label class="btn btn-sm btn-primary">
+                <input name="when" type="radio" autocomplete="off" value="2" />
+                <i class="bi bi-check-lg"></i> Pasados
+            </label>
+        </div>
         <table id="grid" class="table table-bordered table-striped">
             <thead>
                 <tr>
