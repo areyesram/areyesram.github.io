@@ -4,11 +4,11 @@ function fillCourses() {
             { data: "Code" },
             {
                 data: "Code",
-                render: code => `<a href="courses-${getTopicCode(code)}.html">${getTopic(code)}</a>`
+                render: code => `<a href="courses-${getTopicCode(code)}">${getTopic(code)}</a>`
             },
             {
                 data: "Title",
-                render: (data, _, row) => `<a href="course.html?c=${row.Code}">${data}</a>`
+                render: (data, _, row) => `<a href="course?c=${row.Code}">${data}</a>`
             },
             {
                 data: "PreReq",
@@ -39,11 +39,11 @@ function fillCalendar() {
             { data: "Code" },
             {
                 data: "Code",
-                render: code => `<a href="courses-${getTopicCode(code)}.html">${getTopic(code)}</a>`
+                render: code => `<a href="courses-${getTopicCode(code)}">${getTopic(code)}</a>`
             },
             {
                 data: "Code",
-                render: code => `<a href="course.html?c=${code}">${getCourse(code).Title}</a>`
+                render: code => `<a href="course?c=${code}">${getCourse(code).Title}</a>`
             },
             {
                 data: "Code",
@@ -80,7 +80,7 @@ function fillCalendar() {
         this.checked = parseInt(this.value) == w;
     });
     $("[name=when").on("change", function () {
-        window.location.href = "calendar.html?w=" + this.value;
+        window.location.href = "calendar?w=" + this.value;
     });
 }
 
@@ -192,3 +192,10 @@ function getVersion(fn) {
         }
     });
 }
+
+$.ajax({
+    url: "/menu.html",
+    success: function (data) {
+        $(document.body).prepend(data);
+    }
+});

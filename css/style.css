@@ -7,6 +7,11 @@ h1 {
     font-size: 2em;
 }
 
+h1 img {
+    height: 64px;
+    vertical-align: middle;
+}
+
 h2,
 h3 {
     font-weight: bold;
@@ -36,4 +41,57 @@ td.link {
 .table td,
 .table th {
     padding: 0.5em;
+}
+
+.tooltip {
+    font-size: 10pt;
+    background-color: #ffffcc;
+    border: 1px solid black;
+    padding: 2px;
+    position: absolute;
+    display: none;
+}
+
+.topic {
+    float: left;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    font-family: Montserrat;
+    border: solid 2px transparent;
+    border-radius: 6px;
+    min-width: 180px;
+}
+
+.topic:hover {
+    border-color: #69ff69;
+    background: #cdffcd;
+}
+
+.topic img {
+    display: block;
+    height: 150px;
+    margin: 0 auto;
+}
+
+a {
+    color: #367588;
+    text-decoration: none;
+}
+
+.menu {
+    float: right;
+}
+
+.menu a {
+    display: block-inline;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 21px;
+    border: solid 2px transparent;
+}
+
+.menu a:hover {
+    border-color: #69ff69;
+    background: #cdffcd;
 }

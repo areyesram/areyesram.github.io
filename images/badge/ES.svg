@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="45.312901"
+   width="35.299988"
    height="45.312401"
-   viewBox="0 0 45.312901 45.312401"
+   viewBox="0 0 35.299988 45.312401"
    version="1.1"
    id="svg14"
    sodipodi:docname="ES.svg"
@@ -46,31 +46,35 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="5.0284091"
-     inkscape:cx="22.1709"
-     inkscape:cy="0.3124"
+     inkscape:zoom="7.8568894"
+     inkscape:cx="34.52864"
+     inkscape:cy="-1.7543635"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg14" />
-  <path
-     d="M 45.3119,12.5868 V 3.5402 C 45.3119,1.5851 43.7269,0 41.7719,0 H 3.5402 C 1.5851,0 0,1.5851 0,3.5402 v 9.0466 z"
-     id="path4"
-     inkscape:connector-curvature="0"
-     style="clip-rule:evenodd;fill:#f04e98;fill-rule:evenodd" />
-  <path
-     d="M 0,28.5299 H 45.3119 V 16.7822 H 0 Z"
-     id="path6"
-     inkscape:connector-curvature="0"
-     style="clip-rule:evenodd;fill:#00bfb3;fill-rule:evenodd" />
-  <path
-     d="m 24.7799,32.7256 v 12.5868 h 16.993 c 1.955,0 3.54,-1.5851 3.54,-3.5403 v -9.0465 z"
-     id="path8"
-     inkscape:connector-curvature="0"
-     style="clip-rule:evenodd;fill:#fec514;fill-rule:evenodd" />
-  <path
-     d="M 20.5319,32.7256 H 0 v 9.0465 c 0,1.9552 1.5851,3.5403 3.5402,3.5403 h 16.9917 z"
-     id="path10"
-     inkscape:connector-curvature="0"
-     style="clip-rule:evenodd;fill:#0077cc;fill-rule:evenodd" />
+  <g
+     id="g14"
+     transform="matrix(0.87395423,0,0,0.87395423,-2.1507064,2.8557185)">
+    <path
+       style="clip-rule:evenodd;fill:#f04e98;fill-rule:evenodd;stroke-width:0.89138228"
+       inkscape:connector-curvature="0"
+       id="path4"
+       d="M 42.851117,13.680515 V 5.6165359 c 0,-1.7427416 -1.412841,-3.1556717 -3.155493,-3.1556717 H 5.616563 c -1.7427415,0 -3.1556716,1.4129301 -3.1556716,3.1556717 v 8.0639791 z" />
+    <path
+       style="clip-rule:evenodd;fill:#00bfb3;fill-rule:evenodd;stroke-width:0.89138228"
+       inkscape:connector-curvature="0"
+       id="path6"
+       d="M 2.4608914,27.891912 H 42.851117 V 17.42022 H 2.4608914 Z" />
+    <path
+       style="clip-rule:evenodd;fill:#fec514;fill-rule:evenodd;stroke-width:0.89138228"
+       inkscape:connector-curvature="0"
+       id="path8"
+       d="m 24.549256,31.631885 v 11.219651 h 15.147259 c 1.742653,0 3.155494,-1.41293 3.155494,-3.155761 v -8.06389 z" />
+    <path
+       style="clip-rule:evenodd;fill:#0077cc;fill-rule:evenodd;stroke-width:0.89138228"
+       inkscape:connector-curvature="0"
+       id="path10"
+       d="M 20.762664,31.631885 H 2.4608914 v 8.06389 c 0,1.742831 1.4129301,3.155761 3.1556716,3.155761 h 15.146101 z" />
+  </g>
 </svg>
