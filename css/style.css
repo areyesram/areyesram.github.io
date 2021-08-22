@@ -21,6 +21,10 @@ h2 #code {
     color: darkcyan;
 }
 
+td {
+    white-space: nowrap;
+}
+
 td.link {
     color: red;
     text-decoration: underline;
