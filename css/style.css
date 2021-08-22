@@ -99,3 +99,12 @@ a {
     border-color: #69ff69;
     background: #cdffcd;
 }
+
+#grid img {
+    height: 24px;
+    margin: 0 6px;
+}
+
+tr:hover {
+    background: #cdffcd;
+}

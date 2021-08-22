@@ -62,7 +62,14 @@
             "Ejemplos de código",
             "Introducción al refactoring"
         ],
-        "Software": ["Visual Studio [Developer, Pro] 2008 o superior., Características: Desarrollo C#"]
+        "Ref": [
+            "http://sourcemaking.com/antipatterns",
+            "http://c2.com/cgi/wiki?AntiPattern",
+            "http://c2.com/cgi/wiki?CodeSmell",
+            "http://www.codinghorror.com/blog/2006/05/code-smells.html"
+        ],
+        "Software": ["Visual Studio [Developer, Pro] 2008 o superior., Características: Desarrollo C#"],
+        "Slides": "https://drive.google.com/file/d/1FR30E3UqOQw2Womgf9dyQN3zFb13eJhB/view?usp=sharing"
     },
     {
         "Code": "PnP-g11n",
@@ -94,7 +101,8 @@
             "- Visual Studio 2008 o superior",
             "- ó Visual Studio Code",
             "- ó algún otro."
-        ]
+        ],
+        "Slides": "https://drive.google.com/file/d/1sF5XF3xXR3NwOz-ELmYpIv67Hno48Cvd/view?usp=sharing"
     },
     {
         "Code": "PnP-Pat",
@@ -108,14 +116,27 @@
             "Ejemplos de patrones",
             "Ejemplos en C#"
         ],
-        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"]
+        "Ref": [
+            "http://www.dofactory.com/Patterns/Patterns.aspx",
+            "http://en.wikipedia.org/wiki/Software_design_pattern",
+            "http://sourcemaking.com/design_patterns",
+            "https://refactoring.guru/design-patterns"
+        ],
+        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"],
+        "Slides": "https://drive.google.com/file/d/1z_Aqp50LO6DseVCNRl29E6d02-gX7Jd8/view?usp=sharing"
     },
     {
         "Code": "PnP-Ref",
         "Title": "Refactoring",
         "PreReq": ["PnP-Ant"],
         "Topics": ["Definición y aplicación", "Catálogo de refactoring", "Ejemplos prácticos"],
-        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"]
+        "Ref": [
+            "http://en.wikipedia.org/wiki/Code_refactoring",
+            "http://www.refactoring.com/",
+            "http://sourcemaking.com/refactoring"
+        ],
+        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"],
+        "Slides": "https://drive.google.com/file/d/12hfSUHaBEKMr_M7VEsmuX3zP8bUf86U9/view?usp=sharing"
     },
     { "Code": "PnP-UML", "Title": "Modelado con UML" },
     { "Code": "Py-101", "Title": "Introducción a Python" },
@@ -132,7 +153,8 @@
         ],
         "Software": [
             "SQL Server [Developer, Professional, Express], 2008R2 o superior, (Database engine, Management Studio)"
-        ]
+        ],
+        "Slides": "https://drive.google.com/file/d/1deWuu2h63lHPjaB25-dt7lEPCG8Hfzpp/view?usp=sharing"
     },
     {
         "Code": "SQL-2",
@@ -150,7 +172,8 @@
             "SQL Server [Developer, Professional, Express], 2008R2 o superior.",
             "- Database engine",
             "- Management Studio"
-        ]
+        ],
+        "Slides": "https://drive.google.com/file/d/1vUOSXXjCqSisCujU8mZ1ZDdxxomNF-u0/view?usp=sharing"
     },
     {
         "Code": "SQL-3",
@@ -166,14 +189,27 @@
             "SQL Server [Developer, Professional, Express], 2008R2 o superior.",
             "- Database engine",
             "- Management Studio"
-        ]
+        ],
+        "Slides": "https://drive.google.com/file/d/1l3p7BpzzYF4QNcufsAQjToCUnsR224H3/view?usp=sharing"
     },
     { "Code": "SQL-Adm", "Title": "SQL Server Administración" },
     { "Code": "SQL-CLR", "Title": "CLR Integration en SQL Server" },
-    { "Code": "SQL-Des", "Title": "SQL Server Diseño de bases de datos" },
+    {
+        "Code": "SQL-Des",
+        "Title": "SQL Server Diseño de bases de datos",
+        "Slides": "https://drive.google.com/file/d/1PSAslgw6mQNuVb1tIMem6az5jufT0Ebo/view?usp=sharing"
+    },
     { "Code": "SQL-FTS", "Title": "SQL Server Full Text Search" },
-    { "Code": "SQL-SSIS", "Title": "SQL Server Integration Services" },
-    { "Code": "SQL-SSRS", "Title": "SQL Server Reporting Services" },
+    {
+        "Code": "SQL-SSIS",
+        "Title": "SQL Server Integration Services",
+        "Slides": "https://drive.google.com/file/d/0B764gEaunDVVMGJvZUFybGdsdkk/view?usp=sharing&resourcekey=0-YcqJFSSwmA2LBGEDNh6a4w"
+    },
+    {
+        "Code": "SQL-SSRS",
+        "Title": "SQL Server Reporting Services",
+        "Slides": "https://drive.google.com/file/d/1_OynLMWKlvNXe3z1bRbXfA3zgGHbinnf/view?usp=sharing"
+    },
     { "Code": "Web-BS", "Title": "Introducción a Bootstrap", "PreReq": ["Web-CSS"] },
     { "Code": "Web-CSS", "Title": "CSS", "PreReq": ["Web-HTML"] },
     { "Code": "Web-CSS2", "Title": "CSS y SASS", "PreReq": ["Web-HTML"] },

@@ -50,8 +50,15 @@ function fillCalendar() {
                 render: code => (getCourse(code).PreReq || []).join(", ")
             },
             {
-                data: "Session",
-                render: session => (session ? `<a href="${session}"><img src="../images/youtube.png" /></a>` : "")
+                data: "Code",
+                render: (code, __, row) => {
+                    var res = "";
+                    var o = getCourse(code);
+                    if (o.Slides) res += `<a href="${o.Slides}" target="_blank"><img src="../images/slides.svg" /></a>`;
+                    if (row.Session)
+                        res += `<a href="${row.Session}" target="_blank"><img src="../images/youtube.png" /></a>`;
+                    return res;
+                }
             }
         ],
         language: {
@@ -114,12 +121,8 @@ function loadCurso() {
                 $.each(c.PreReq, function () {
                     var prereq = this;
                     var link = $("<a>")
-                        .attr("href", "#" + prereq)
+                        .attr("href", "course?c=" + prereq)
                         .text(prereq);
-                    link.on("click", function () {
-                        window.location.replace("#" + prereq);
-                        window.location.reload();
-                    });
                     ul.append($("<li>").append(link));
                 });
             } else {
