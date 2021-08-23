@@ -14,7 +14,10 @@
         "Session": "https://www.youtube.com/watch?v=VAJb_UAIPOc&list=PL_MKkGXt-v2JtMlryboZ2Y1_M6eUohfOc&ab_channel=AlejandroReyes"
     },
     { "Date": 1616824800, "Code": "SQL-3" },
-    { "Date": 1618030800, "Code": "Web-HTML" },
+    {
+        "Date": 1618030800,
+        "Code": "Web-HTML"
+    },
     { "Date": 1618635600, "Code": "Web-JS1" },
     { "Date": 1619240400, "Code": "Web-JS2" },
     { "Date": 1619845200, "Code": "Node-101" },
@@ -52,4 +55,3 @@
     { "Date": 1637388000, "Code": "ES-Kib" },
     { "Date": 1637992800, "Code": "ES-ETL" }
 ]
-

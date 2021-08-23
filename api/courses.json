@@ -18,11 +18,27 @@
     },
     { "Code": "Lnx-101", "Title": "Introducción a Linux" },
     { "Code": "Lnx-Bash", "Title": "Linux Bash scripting" },
-    { "Code": "NET-101", "Title": "Introduccion a C# y .NET" },
-    { "Code": "NET-ADO", "Title": ".NET - ADO.NET" },
-    { "Code": "NET-A&S", "Title": "Algoritmos y estructuras de datos en C#." },
+    {
+        "Code": "NET-101",
+        "Title": "Introduccion a C# y .NET",
+        "Slides": "https://drive.google.com/file/d/10XtoRJtvsDCVUhsWBvC0J9pHpAPaSnRJ/view?usp=sharing"
+    },
+    {
+        "Code": "NET-ADO",
+        "Title": ".NET - ADO.NET",
+        "Slides": "https://drive.google.com/file/d/1gXnz60Ywu7OlwmZkN3T62iiBFblXH337/view?usp=sharing"
+    },
+    {
+        "Code": "NET-A&S",
+        "Title": "Algoritmos y estructuras de datos en C#.",
+        "Slides": "https://drive.google.com/file/d/1Bb6HN-3cWouhY6VAZDVyvBCL326Er6-h/view?usp=sharing"
+    },
     { "Code": "NET-COM", "Tópico": "", "Title": "Componentes COM+ en C#" },
-    { "Code": "NET-Dbg", "Title": ".NET - Debugging, Logging y manejo de errores." },
+    {
+        "Code": "NET-Dbg",
+        "Title": ".NET - Debugging, Logging y manejo de errores.",
+        "Slides": "https://drive.google.com/file/d/15ufih3F91Fo35c4iDRpEVTK6IVE31WWh/view?usp=sharing"
+    },
     {
         "Code": "NET-GDI",
         "Title": "Manipulación de imágenes a través de GDI+",
@@ -31,7 +47,11 @@
     { "Code": "NET-LINQ", "Title": ".NET - LINQ" },
     { "Code": "NET-MVC1", "Title": ".NET - ASP.NET MVC (parte 1)" },
     { "Code": "NET-MVC2", "Title": ".NET - ASP.NET MVC (parte 2)" },
-    { "Code": "NET-OOP", "Title": "Programación orientada a objetos en C#" },
+    {
+        "Code": "NET-OOP",
+        "Title": "Programación orientada a objetos en C#",
+        "Slides": "https://drive.google.com/file/d/1jxjwp26Ha43nAdtdyteFTztQIGEm1w2P/view?usp=sharing"
+    },
     { "Code": "NET-Ref", "Title": ".NET Reflection en C#" },
     { "Code": "NET-Rgx", "Title": "Expresiones regulares en C#" },
     { "Code": "NET-Ser", "Title": "Serialización en C# (XML, JSON, etc.)" },
@@ -39,16 +59,36 @@
     { "Code": "NET-Task", "Title": "Multitasking y operaciones asíncronas" },
     { "Code": "NET-UT", "Title": "Pruebas unitarias en C#" },
     { "Code": "NET-WCF", "Title": ".NET - ASP.NET Web Services / WCF" },
-    { "Code": "NET-Win", "Title": ".NET - Aplicaciones Windows Forms." },
-    { "Code": "Node-101", "Title": "Node.js básico", "PreReq": ["Web-JS2"] },
-    { "Code": "Node-API", "Title": "Node.js REST API", "PreReq": ["Node-Mod"] },
-    { "Code": "Node-Mod", "Title": "Node.js Módulos", "PreReq": ["Node-101"] },
+    {
+        "Code": "NET-Win",
+        "Title": ".NET - Aplicaciones Windows Forms.",
+        "Slides": "https://drive.google.com/file/d/1JeUj1i-M8bv_y_Woj12q7UEmy5kebWka/view?usp=sharing"
+    },
+    {
+        "Code": "Node-101",
+        "Title": "Node.js básico",
+        "PreReq": ["Web-JS2"],
+        "Slides": "https://drive.google.com/file/d/1FmZDfIXNr5YM92sCgBmJRiKW8A-skdxH/view?usp=sharing"
+    },
+    {
+        "Code": "Node-API",
+        "Title": "Node.js REST API",
+        "PreReq": ["Node-Mod"],
+        "Slides": "https://drive.google.com/file/d/1M8qCzmyAj4X-jhvmZF3Lz7Er6UYeh9-d/view?usp=sharing"
+    },
+    {
+        "Code": "Node-Mod",
+        "Title": "Node.js Módulos",
+        "PreReq": ["Node-101"],
+        "Slides": "https://drive.google.com/file/d/1QHSbYEVc_8PbXzTyUO6_nWK5_KkHZ1Es/view?usp=sharing"
+    },
     { "Code": "Node-UT", "Tópico": "", "Title": "Pruebas unitarias en Node.js" },
     {
         "Code": "Node-Web",
         "Title": "Node.js Web App (Express + Pug)",
         "PreReq": ["Node-API"],
-        "Topics": ["Express (routers)", "Middlewares", "Pug (view, layout, mixins)"]
+        "Topics": ["Express (routers)", "Middlewares", "Pug (view, layout, mixins)"],
+        "Slides": "https://drive.google.com/file/d/12OzhS3DVRmDji8YRkTiZyvqYw_nuto19/view?usp=sharing"
     },
     {
         "Code": "PnP-Ant",
@@ -212,23 +252,28 @@
     },
     { "Code": "Web-BS", "Title": "Introducción a Bootstrap", "PreReq": ["Web-CSS"] },
     { "Code": "Web-CSS", "Title": "CSS", "PreReq": ["Web-HTML"] },
-    { "Code": "Web-CSS2", "Title": "CSS y SASS", "PreReq": ["Web-HTML"] },
+    {
+        "Code": "Web-CSS2",
+        "Title": "CSS y SASS",
+        "PreReq": ["Web-HTML"],
+        "Slides": "https://drive.google.com/file/d/1I-Oszk-Trr7xAXi-QmbEG9qe-VMNEfKm/view?usp=sharing"
+    },
     {
         "Code": "Web-HTML",
         "Title": "Introducción a HTML",
-
-        "Topics": ["Historia", "Estructura", "Elementos", "Colores", "Entidades"]
+        "Topics": ["Historia", "Estructura", "Elementos", "Colores", "Entidades"],
+        "Slides": "https://drive.google.com/file/d/18IkXv7-7RJT9QIb27ZSxyCEpRn-ru2xj/view?usp=sharing"
     },
     {
         "Code": "Web-jQ",
         "Title": "jQuery",
         "PreReq": ["Web-JS1"],
-        "Topics": ["Manipulación del DOM", "AJAX", "jQuery UI"]
+        "Topics": ["Manipulación del DOM", "AJAX", "jQuery UI"],
+        "Slides": "https://drive.google.com/file/d/1CrFeZmjxO7Rlq82hwDSF0j54orMIwCC4/view?usp=sharing"
     },
     {
         "Code": "Web-JS1",
         "Title": "Introducción a JavaScript",
-
         "Topics": [
             "Evolución de ECMAScript",
             "Sintaxis del lenguaje",
@@ -236,7 +281,8 @@
             "Variables, arreglos y objetos",
             "Funciones",
             "Manipulación del DOM"
-        ]
+        ],
+        "Slides": "https://drive.google.com/file/d/1tspMUENwzVgmuOatGdg0oy67Xfqi8lRo/view?usp=sharing"
     },
     {
         "Code": "Web-JS2",
@@ -249,10 +295,21 @@
             "Operaciones con Objetos",
             "Clases",
             "Operaciones asíncronas"
-        ]
+        ],
+        "Slides": "https://drive.google.com/file/d/1TTiK8cUzKY0GXprBafcOdaU98RSkX9Zs/view?usp=sharing"
     },
-    { "Code": "Web-Ng1", "Title": "Introducción a Angular", "PreReq": ["Web-TS1", "Node-API"] },
+    {
+        "Code": "Web-Ng1",
+        "Title": "Introducción a Angular",
+        "PreReq": ["Web-TS1", "Node-API"],
+        "Slides": "https://drive.google.com/file/d/1GKV5etFiIa3Fw3-gAh6Mb4e2HJ6fvm84/view?usp=sharing"
+    },
     { "Code": "Web-Ng2", "Title": "Angular - Parte 2", "PreReq": ["Web-Ng1"] },
     { "Code": "Web-SASS", "Title": "SASS (SCSS)", "PreReq": ["Web-CSS"] },
-    { "Code": "Web-TS1", "Title": "Introducción a TypeScript", "PreReq": ["Web-JS2"] }
+    {
+        "Code": "Web-TS1",
+        "Title": "Introducción a TypeScript",
+        "PreReq": ["Web-JS2"],
+        "Slides": "https://drive.google.com/file/d/1pl3QDnSZS1FU5OSQZFVmOyRtcZwsiv4R/view?usp=sharing"
+    }
 ]
