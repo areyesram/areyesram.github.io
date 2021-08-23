@@ -42,7 +42,8 @@
     {
         "Code": "NET-GDI",
         "Title": "Manipulación de imágenes a través de GDI+",
-        "Topics": ["Gráficas en Windows Forms", "Primitivas de dibujo", "Manipulación de imágenes"]
+        "Topics": ["Gráficas en Windows Forms", "Primitivas de dibujo", "Manipulación de imágenes"],
+        "PreReq": ["NET-Win"]
     },
     { "Code": "NET-LINQ", "Title": ".NET - LINQ" },
     { "Code": "NET-MVC1", "Title": ".NET - ASP.NET MVC (parte 1)" },
@@ -50,7 +51,8 @@
     {
         "Code": "NET-OOP",
         "Title": "Programación orientada a objetos en C#",
-        "Slides": "https://drive.google.com/file/d/1jxjwp26Ha43nAdtdyteFTztQIGEm1w2P/view?usp=sharing"
+        "Slides": "https://drive.google.com/file/d/1jxjwp26Ha43nAdtdyteFTztQIGEm1w2P/view?usp=sharing",
+        "PreReq": ["NET-101"]
     },
     { "Code": "NET-Ref", "Title": ".NET Reflection en C#" },
     { "Code": "NET-Rgx", "Title": "Expresiones regulares en C#" },
@@ -62,7 +64,8 @@
     {
         "Code": "NET-Win",
         "Title": ".NET - Aplicaciones Windows Forms.",
-        "Slides": "https://drive.google.com/file/d/1JeUj1i-M8bv_y_Woj12q7UEmy5kebWka/view?usp=sharing"
+        "Slides": "https://drive.google.com/file/d/1JeUj1i-M8bv_y_Woj12q7UEmy5kebWka/view?usp=sharing",
+        "PreReq": ["NET-OOP"]
     },
     {
         "Code": "Node-101",
