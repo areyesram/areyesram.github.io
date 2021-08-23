@@ -31,15 +31,24 @@ td.link {
 }
 
 #sessions ul {
-    list-style-image: url("../images/norec.png");
+    padding-left: 20px;
+}
+#sessions ul li {
+    margin: 0;
+    padding: 0 0 0 2em;
+    list-style: none;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 1.5em;
+    background-image: url("../images/norec.png");
 }
 
 #sessions ul .rec {
-    list-style-image: url("../images/youtube.png");
+    background-image: url("../images/youtube.svg");
 }
 
 #sessions ul .fut {
-    list-style-image: url("../images/cal.png");
+    background-image: url("../images/calendar.svg");
 }
 
 .table td,

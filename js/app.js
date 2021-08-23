@@ -56,7 +56,7 @@ function fillCalendar() {
                     var o = getCourse(code);
                     if (o.Slides) res += `<a href="${o.Slides}" target="_blank"><img src="../images/slides.svg" /></a>`;
                     if (row.Session)
-                        res += `<a href="${row.Session}" target="_blank"><img src="../images/youtube.png" /></a>`;
+                        res += `<a href="${row.Session}" target="_blank"><img src="../images/youtube.svg" /></a>`;
                     return res;
                 }
             }
@@ -186,7 +186,7 @@ function getVersion(fn) {
         url: "/api/version.json?r=" + Math.floor(new Date().valueOf() / 1000 / 60),
         cache: false,
         success: function (data) {
-            if (data.version != 27159298) alert("Nueva versión. Favor de limpiar el cache del navegador.");
+            if (data.version != 1629746206313) alert("Nueva versión. Favor de limpiar el cache del navegador.");
             _version = "?v=" + data.version;
             fn();
         },
