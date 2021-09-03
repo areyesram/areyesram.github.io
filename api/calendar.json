@@ -31,7 +31,11 @@
     { "Date": 1625288400, "Code": "SQL-SSIS" },
     { "Date": 1625893200, "Code": "SQL-SSRS" },
     { "Date": 1626498000, "Code": "SQL-Des" },
-    { "Date": 1627102800, "Code": "NET-101" },
+    {
+        "Date": 1627102800,
+        "Code": "NET-101",
+        "Session": "https://www.youtube.com/watch?v=8wMAGvvETk0&list=PL_MKkGXt-v2IVWZSQ7JO-t3J-vuV9_Zpn&index=1&ab_channel=AlejandroReyes"
+    },
     { "Date": 1627707600, "Code": "NET-OOP" },
     {
         "Date": 1628312400,
