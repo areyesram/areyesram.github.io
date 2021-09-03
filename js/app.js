@@ -21,6 +21,7 @@ function fillCourses() {
     });
     $.ajax({
         url: "api/courses.json" + _version,
+        cache: false,
         success: function (data) {
             t.rows.add(data);
             t.draw();
@@ -70,10 +71,12 @@ function fillCalendar() {
     var w = parseInt(q.w) || 1;
     $.ajax({
         url: "api/courses.json" + _version,
+        cache: false,
         success: function (courses) {
             _courses = courses;
             $.ajax({
                 url: "api/calendar.json" + _version,
+                cache: false,
                 success: function (data) {
                     var now = moment(new Date()).startOf("day").valueOf() / 1000;
                     data = data.filter(o => ((w & 1) != 0 && o.Date >= now) || ((w & 2) != 0 && o.Date < now));
@@ -101,6 +104,7 @@ function loadCurso() {
     var code = window.location.search.replace(/\?c=(\w+-\w+)/, "$1");
     $.ajax({
         url: "api/courses.json" + _version,
+        cache: false,
         success: function (data) {
             var c = data.find(function (o) {
                 return o.Code == code;
@@ -130,6 +134,7 @@ function loadCurso() {
             }
             $.ajax({
                 url: "api/calendar.json" + _version,
+                cache: false,
                 success: function (calendar) {
                     var sessions = calendar.filter(function (o) {
                         return o.Code == code;
@@ -198,6 +203,7 @@ function getVersion(fn) {
 
 $.ajax({
     url: "/menu.html",
+    cache: false,
     success: function (data) {
         $(document.body).prepend(data);
     }
