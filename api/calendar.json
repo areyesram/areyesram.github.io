@@ -38,7 +38,11 @@
         "Code": "NET-A&S",
         "Session": "https://www.youtube.com/watch?v=SKX9twWb6ts&list=PL_MKkGXt-v2Kt-TZdWLg89D20tS7MscOX&index=1&t=29s&ab_channel=AlejandroReyes"
     },
-    { "Date": 1628917200, "Code": "NET-Dbg" },
+    {
+        "Date": 1628917200,
+        "Code": "NET-Dbg",
+        "Session": "https://www.youtube.com/watch?v=XzdDumzFwv0&list=PL_MKkGXt-v2Lzl3UTl8Oqcljr9cy-lOfz&index=1&t=5s&ab_channel=AlejandroReyes"
+    },
     { "Date": 1629522000, "Code": "NET-ADO" },
     { "Date": 1630126800, "Code": "NET-LINQ" },
     { "Date": 1630731600, "Code": "NET-Win" },
