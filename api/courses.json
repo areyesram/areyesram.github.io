@@ -9,7 +9,11 @@
     },
     { "Code": "ES-Bas", "Title": "Búsquedas básicas" },
     { "Code": "ES-BI", "Title": "Analytics (business intelligence)" },
-    { "Code": "ES-ETL", "Title": "Ingesta de datos", "Topics": ["Bulk indexing", "Logstash", "Beats"] },
+    {
+        "Code": "ES-ETL",
+        "Title": "Ingesta de datos",
+        "Topics": ["Bulk indexing", "Logstash", "Beats"]
+    },
     { "Code": "ES-FTS", "Title": "Full-text search" },
     {
         "Code": "ES-Kib",
@@ -45,7 +49,11 @@
         "Topics": ["Gráficas en Windows Forms", "Primitivas de dibujo", "Manipulación de imágenes"],
         "PreReq": ["NET-Win"]
     },
-    { "Code": "NET-LINQ", "Title": ".NET - LINQ" },
+    {
+        "Code": "NET-LINQ",
+        "Title": ".NET - LINQ",
+        "Slides": "https://drive.google.com/file/d/1IOkvUJYBhdRMmdmP6pqFBI19QXU6TYP4/view"
+    },
     { "Code": "NET-MVC1", "Title": ".NET - ASP.NET MVC (parte 1)" },
     { "Code": "NET-MVC2", "Title": ".NET - ASP.NET MVC (parte 2)" },
     {
@@ -111,7 +119,9 @@
             "http://c2.com/cgi/wiki?CodeSmell",
             "http://www.codinghorror.com/blog/2006/05/code-smells.html"
         ],
-        "Software": ["Visual Studio [Developer, Pro] 2008 o superior., Características: Desarrollo C#"],
+        "Software": [
+            "Visual Studio [Developer, Pro] 2008 o superior., Características: Desarrollo C#"
+        ],
         "Slides": "https://drive.google.com/file/d/1FR30E3UqOQw2Womgf9dyQN3zFb13eJhB/view?usp=sharing"
     },
     {
@@ -165,7 +175,10 @@
             "http://sourcemaking.com/design_patterns",
             "https://refactoring.guru/design-patterns"
         ],
-        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"],
+        "Software": [
+            "Visual Studio [Developer, Pro] 2008 o superior.",
+            "- Características: Desarrollo C#"
+        ],
         "Slides": "https://drive.google.com/file/d/1z_Aqp50LO6DseVCNRl29E6d02-gX7Jd8/view?usp=sharing"
     },
     {
@@ -178,7 +191,10 @@
             "http://www.refactoring.com/",
             "http://sourcemaking.com/refactoring"
         ],
-        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"],
+        "Software": [
+            "Visual Studio [Developer, Pro] 2008 o superior.",
+            "- Características: Desarrollo C#"
+        ],
         "Slides": "https://drive.google.com/file/d/12hfSUHaBEKMr_M7VEsmuX3zP8bUf86U9/view?usp=sharing"
     },
     { "Code": "PnP-UML", "Title": "Modelado con UML" },
