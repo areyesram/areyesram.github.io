@@ -1,4 +1,4 @@
-function fillCourses() {
+async function fillCourses() {
     var t = $("#grid").DataTable({
         columns: [
             { data: "Code" },
@@ -19,17 +19,16 @@ function fillCourses() {
             url: "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
         }
     });
-    $.ajax({
-        url: "api/courses.json" + _version,
-        cache: false,
-        success: function (data) {
-            t.rows.add(data);
-            t.draw();
-        }
-    });
+    const data = await dac.course.list();
+    t.rows.add(data);
+    t.draw();
 }
 
-function fillCalendar() {
+async function fillCalendar() {
+    _courses = await dac.course.list();
+    const getCourseSync = code => {
+        return _courses.find(o => o.Code == code);
+    };
     var t = $("#grid").DataTable({
         columns: [
             {
@@ -44,18 +43,19 @@ function fillCalendar() {
             },
             {
                 data: "Code",
-                render: code => `<a href="course?c=${code}">${getCourse(code).Title}</a>`
+                render: code => `<a href="course?c=${code}">${getCourseSync(code).Title}</a>`
             },
             {
                 data: "Code",
-                render: code => (getCourse(code).PreReq || []).join(", ")
+                render: code => (getCourseSync(code).PreReq || []).join(", ")
             },
             {
                 data: "Code",
-                render: (code, __, row) => {
+                render: (code, _, row) => {
                     var res = "";
-                    var o = getCourse(code);
-                    if (o.Slides) res += `<a href="${o.Slides}" target="_blank"><img src="../images/slides.svg" /></a>`;
+                    var o = getCourseSync(code);
+                    if (o.Slides)
+                        res += `<a href="${o.Slides}" target="_blank"><img src="../images/slides.svg" /></a>`;
                     if (row.Session)
                         res += `<a href="${row.Session}" target="_blank"><img src="../images/youtube.svg" /></a>`;
                     return res;
@@ -69,100 +69,108 @@ function fillCalendar() {
     var search = new URLSearchParams(window.location.search);
     var q = Object.fromEntries(search.entries());
     var w = parseInt(q.w) || 1;
-    $.ajax({
-        url: "api/courses.json" + _version,
-        cache: false,
-        success: function (courses) {
-            _courses = courses;
-            $.ajax({
-                url: "api/calendar.json" + _version,
-                cache: false,
-                success: function (data) {
-                    var now = moment(new Date()).startOf("day").valueOf() / 1000;
-                    data = data.filter(o => ((w & 1) != 0 && o.Date >= now) || ((w & 2) != 0 && o.Date < now));
-                    t.rows.add(data);
-                    t.draw();
-                }
-            });
+    var now = moment(new Date()).startOf("day").valueOf() / 1000;
+    const calendar = (await dac.calendar.list()).filter(
+        o => ((w & 1) != 0 && o.Date >= now) || ((w & 2) != 0 && o.Date < now)
+    );
+    t.rows.add(calendar);
+    t.draw();
+    $("[name=when").each((_, o) => {
+        return (o.checked = parseInt(o.value) == w);
+    });
+    $("[name=when").on("change", evt => (window.location.href = "calendar?w=" + evt.target.value));
+}
+
+async function loadCurso() {
+    const code = window.location.search.replace(/\?c=(\w+-\w+)/, "$1");
+    const course = (await dac.course.list()).find(o => o.Code == code);
+
+    $("#title").text(course.Title);
+
+    $("#code").text("[" + course.Code + "]");
+    let ul = $("#topics").find("ul");
+    if (course.Topics && course.Topics.length) {
+        $.each(course.Topics, function () {
+            var topic = this;
+            ul.append($("<li>").text(topic));
+        });
+    } else {
+        ul.append($("<li>").text("T.B.D."));
+    }
+
+    ul = $("#prereq").find("ul");
+    if (course.PreReq && course.PreReq.length) {
+        for (let code of course.PreReq) {
+            const title = (await dac.course.find(code)).Title;
+            var link = $("<a>")
+                .attr("href", `course?c=${code}`)
+                .text(`[${code}] ${title}`);
+            ul.append($("<li>").append(link));
         }
-    });
-    $("[name=when").each(function () {
-        this.checked = parseInt(this.value) == w;
-    });
-    $("[name=when").on("change", function () {
-        window.location.href = "calendar?w=" + this.value;
-    });
+    } else {
+        ul.append($("<li>").text("Ninguno."));
+    }
+
+    const calendar = await dac.calendar.list();
+    var sessions = calendar.filter(o => o.Code == code);
+    ul = $("#sessions").find("ul");
+    if (sessions && sessions.length) {
+        $.each(sessions, () => {
+            const session = this;
+            const date = moment(session.Date * 1000);
+            const label = date.format("DD [de] MMMM [de] YYYY");
+            const link = session.Session
+                ? $("<a>").attr("href", session.Session).attr("target", "_blank").text(label)
+                : label;
+            ul.append(
+                $("<li>")
+                    .addClass(
+                        date.toDate() > new Date() ? "fut" : session.Session ? "rec" : "norec"
+                    )
+                    .append(link)
+            );
+        });
+    } else {
+        ul.parent().hide();
+    }
 }
 
-function getCourse(code) {
-    return _courses.find(function (o) {
-        return o.Code == code;
-    });
-}
+const _cache = {};
 
-function loadCurso() {
-    var code = window.location.search.replace(/\?c=(\w+-\w+)/, "$1");
-    $.ajax({
-        url: "api/courses.json" + _version,
-        cache: false,
-        success: function (data) {
-            var c = data.find(function (o) {
-                return o.Code == code;
-            });
-            $("#title").text(c.Title);
-            $("#code").text("[" + c.Code + "]");
-            var ul = $("#topics").find("ul");
-            if (c.Topics && c.Topics.length) {
-                $.each(c.Topics, function () {
-                    var topic = this;
-                    ul.append($("<li>").text(topic));
-                });
-            } else {
-                ul.append($("<li>").text("T.B.D."));
-            }
-            ul = $("#prereq").find("ul");
-            if (c.PreReq && c.PreReq.length) {
-                $.each(c.PreReq, function () {
-                    var prereq = this;
-                    var link = $("<a>")
-                        .attr("href", "course?c=" + prereq)
-                        .text(prereq);
-                    ul.append($("<li>").append(link));
-                });
-            } else {
-                ul.append($("<li>").text("Ninguno."));
-            }
-            $.ajax({
-                url: "api/calendar.json" + _version,
-                cache: false,
-                success: function (calendar) {
-                    var sessions = calendar.filter(function (o) {
-                        return o.Code == code;
+const dac = {
+    course: {
+        list: async () =>
+            new Promise((res, rej) => {
+                if (_cache.courses) {
+                    res(_cache.courses);
+                } else
+                    $.ajax({
+                        url: "api/courses.json" + _version,
+                        cache: false,
+                        success: async data => {
+                            _cache.courses = data;
+                            return res(data);
+                        },
+                        error: (a, b, c) => rej(a)
                     });
-                    ul = $("#sessions").find("ul");
-                    if (sessions && sessions.length) {
-                        $.each(sessions, function () {
-                            var course = this;
-                            var date = moment(course.Date * 1000);
-                            var label = date.format("DD [de] MMMM [de] YYYY");
-                            var link;
-                            if (course.Session)
-                                link = $("<a>").attr("href", course.Session).attr("target", "_blank").text(label);
-                            else link = label;
-                            ul.append(
-                                $("<li>")
-                                    .addClass(date.toDate() > new Date() ? "fut" : course.Session ? "rec" : "norec")
-                                    .append(link)
-                            );
-                        });
-                    } else {
-                        ul.parent().hide();
-                    }
-                }
-            });
-        }
-    });
-}
+            }),
+        find: async code => (await dac.course.list()).find(o => o.Code == code)
+    },
+    calendar: {
+        list: async () =>
+            new Promise((res, rej) => {
+                $.ajax({
+                    url: "api/calendar.json" + _version,
+                    cache: false,
+                    success: async data => {
+                        for (let o of data) o.Course = await dac.course.find(o.Code);
+                        return res(data);
+                    },
+                    error: (a, b, c) => rej(a)
+                });
+            })
+    }
+};
 
 var _topics = ["CB", "ES", "Lnx", "NET", "Node", "PnP", "Py", "SQL", "Web"];
 
@@ -190,12 +198,13 @@ function getVersion(fn) {
     $.ajax({
         url: "/api/version.json?r=" + Math.floor(new Date().valueOf() / 1000 / 60),
         cache: false,
-        success: function (data) {
-            if (data.version != 1630683570338) alert("Nueva versión. Favor de limpiar el cache del navegador.");
+        success: data => {
+            if (data.version != 1630683570338)
+                alert("Nueva versión. Favor de limpiar el cache del navegador.");
             _version = "?v=" + data.version;
             fn();
         },
-        error: function (a, b, c) {
+        error: (a, b, c) => {
             debugger;
         }
     });
@@ -204,7 +213,5 @@ function getVersion(fn) {
 $.ajax({
     url: "/menu.html",
     cache: false,
-    success: function (data) {
-        $(document.body).prepend(data);
-    }
+    success: data => $(document.body).prepend(data)
 });

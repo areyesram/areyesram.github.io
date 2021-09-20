@@ -1,24 +1,61 @@
 [
     { "Code": "CB-Img", "Title": "Edición de imágenes con GIMP e Inkscape" },
     { "Code": "CB-XL", "Title": "Excel" },
-    { "Code": "ES-101", "Title": "Introducción al stack de Elastic" },
+    {
+        "Code": "ES-101",
+        "Title": "Introducción al stack de Elastic",
+        "SeeAlso": [
+            { "Elastic Stack @elastic.co": "https://www.elastic.co/elastic-stack/" },
+            { "Elasticsearch @elastic.co": "https://www.elastic.co/elasticsearch/" }
+        ]
+    },
     {
         "Code": "ES-Adm",
         "Title": "Administración de Elasticsearch",
-        "Topics": ["Crear un cluster", "Administrar indices", "Snapshots (backup/restore)"]
+        "Topics": ["Crear un cluster", "Administrar indices", "Snapshots (backup/restore)"],
+        "SeeAlso": [
+            {
+                "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
+            }
+        ]
     },
-    { "Code": "ES-Bas", "Title": "Búsquedas básicas" },
-    { "Code": "ES-BI", "Title": "Analytics (business intelligence)" },
+    {
+        "Code": "ES-Bas",
+        "Title": "Búsquedas básicas",
+        "SeeAlso": [
+            {
+                "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
+            }
+        ]
+    },
+    {
+        "Code": "ES-BI",
+        "Title": "Analytics (business intelligence)",
+        "SeeAlso": [
+            {
+                "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
+            }
+        ]
+    },
     {
         "Code": "ES-ETL",
         "Title": "Ingesta de datos",
-        "Topics": ["Bulk indexing", "Logstash", "Beats"]
+        "Topics": ["Bulk indexing", "Logstash", "Beats"],
+        "Software": [
+            { "Elasticsearch": "https://www.elastic.co/downloads/elasticsearch" },
+            { "Logstash": "https://www.elastic.co/downloads/logstash" }
+        ],
+        "SeeAlso": [
+            { "Logstash @elastic.co": "https://www.elastic.co/logstash/" },
+            { "Beats @elastic.co": "https://www.elastic.co/beats/" }
+        ]
     },
     { "Code": "ES-FTS", "Title": "Full-text search" },
     {
         "Code": "ES-Kib",
         "Title": "Kibana",
-        "Topics": ["Consola de desarrollo", "Data discovery", "Visualizaciones", "Dashboards"]
+        "Topics": ["Consola de desarrollo", "Data discovery", "Visualizaciones", "Dashboards"],
+        "SeeAlso": ["https://www.elastic.co/kibana/"]
     },
     { "Code": "Lnx-101", "Title": "Introducción a Linux" },
     { "Code": "Lnx-Bash", "Title": "Linux Bash scripting" },
@@ -128,10 +165,11 @@
         "Code": "PnP-g11n",
         "Title": "Globalización",
         "Topics": [
-            "Localización y localización",
-            "Códigos de caracteres",
-            "Traducciones y alfabetos",
+            "Internacionalización (i18n)" ,
+            "Localización (l10n)",
             "Formatos de fecha y moneda",
+            "Traducciones y alfabetos",
+            "Códigos de caracteres",
             "Zonas horarias"
         ]
     },
