@@ -90,9 +90,8 @@ async function loadCurso() {
     $("#code").text("[" + course.Code + "]");
     let ul = $("#topics").find("ul");
     if (course.Topics && course.Topics.length) {
-        $.each(course.Topics, function () {
-            var topic = this;
-            ul.append($("<li>").text(topic));
+        $.each(course.Topics, (idx, o) {
+            ul.append($("<li>").text(o));
         });
     } else {
         ul.append($("<li>").text("T.B.D."));
@@ -115,17 +114,16 @@ async function loadCurso() {
     var sessions = calendar.filter(o => o.Code == code);
     ul = $("#sessions").find("ul");
     if (sessions && sessions.length) {
-        $.each(sessions, () => {
-            const session = this;
-            const date = moment(session.Date * 1000);
+        $.each(sessions, (_idx, o) => {
+            const date = moment(o.Date * 1000);
             const label = date.format("DD [de] MMMM [de] YYYY");
-            const link = session.Session
-                ? $("<a>").attr("href", session.Session).attr("target", "_blank").text(label)
+            const link = o.Session
+                ? $("<a>").attr("href", o.Session).attr("target", "_blank").text(label)
                 : label;
             ul.append(
                 $("<li>")
                     .addClass(
-                        date.toDate() > new Date() ? "fut" : session.Session ? "rec" : "norec"
+                        date.toDate() > new Date() ? "fut" : o.Session ? "rec" : "norec"
                     )
                     .append(link)
             );
