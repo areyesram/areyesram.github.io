@@ -90,7 +90,7 @@ async function loadCurso() {
     $("#code").text("[" + course.Code + "]");
     let ul = $("#topics").find("ul");
     if (course.Topics && course.Topics.length) {
-        $.each(course.Topics, (idx, o) {
+        $.each(course.Topics, (idx, o) => {
             ul.append($("<li>").text(o));
         });
     } else {
@@ -197,7 +197,7 @@ function getVersion(fn) {
         url: "/api/version.json?r=" + Math.floor(new Date().valueOf() / 1000 / 60),
         cache: false,
         success: data => {
-            if (data.version != 1630683570338)
+            if (data.version != 1633622267453)
                 alert("Nueva versión. Favor de limpiar el cache del navegador.");
             _version = "?v=" + data.version;
             fn();
