@@ -25,6 +25,7 @@
         "Code": "ES-Adm",
         "Title": "Administración de Elasticsearch",
         "Topics": ["Crear un cluster", "Administrar indices", "Snapshots (backup/restore)"],
+        "PreReq": ["ES-Bas"],
         "SeeAlso": {
             "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
         }
@@ -50,6 +51,7 @@
     {
         "Code": "ES-BI",
         "Title": "Analytics (business intelligence)",
+        "PreReq": ["ES-Bas"],
         "SeeAlso": {
             "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
         }
@@ -58,6 +60,7 @@
         "Code": "ES-ETL",
         "Title": "Ingesta de datos",
         "Topics": ["Bulk indexing", "Logstash", "Beats"],
+        "PreReq": ["ES-Bas"],
         "Software": [
             { "Elasticsearch": "https://www.elastic.co/downloads/elasticsearch" },
             { "Logstash": "https://www.elastic.co/downloads/logstash" }
@@ -67,7 +70,7 @@
             "Beats @elastic.co": "https://www.elastic.co/beats/"
         }
     },
-    { "Code": "ES-FTS", "Title": "Full-text search" },
+    { "Code": "ES-FTS", "Title": "Full-text search", "PreReq": ["ES-Bas"] },
     {
         "Code": "ES-Kib",
         "Title": "Kibana",
