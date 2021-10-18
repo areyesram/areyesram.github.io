@@ -30,7 +30,8 @@ td.link {
     text-decoration: underline;
 }
 
-#sessions ul {
+#sessions ul,
+#files ul {
     padding-left: 20px;
 }
 #sessions ul li {
@@ -49,6 +50,16 @@ td.link {
 
 #sessions ul .fut {
     background-image: url("../images/calendar.svg");
+}
+
+#files ul li {
+    margin: 0;
+    padding: 0 0 0 2em;
+    list-style: none;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 1.5em;
+    background-image: url("../images/folder.svg");
 }
 
 .table td,

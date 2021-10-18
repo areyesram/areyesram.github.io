@@ -108,6 +108,16 @@ async function loadCurso() {
         ul.append($("<li>").text("Ninguno."));
     }
 
+    ul = $("#files").find("ul");
+    if (course.Files) {
+        for (let k in course.Files) {
+            var link = $("<a>").attr("href", course.Files[k]).attr("target", "_blank").text(k);
+            ul.append($("<li>").append(link));
+        }
+    } else {
+        ul.parent().hide();
+    }
+
     const calendar = await dac.calendar.list();
     var sessions = calendar.filter(o => o.Code == code);
     ul = $("#sessions").find("ul");
@@ -124,6 +134,16 @@ async function loadCurso() {
                     .append(link)
             );
         });
+    } else {
+        ul.parent().hide();
+    }
+
+    ul = $("#seealso").find("ul");
+    if (course.SeeAlso) {
+        for (let k in course.SeeAlso) {
+            var link = $("<a>").attr("href", course.SeeAlso[k]).attr("target", "_blank").text(k);
+            ul.append($("<li>").append(link));
+        }
     } else {
         ul.parent().hide();
     }

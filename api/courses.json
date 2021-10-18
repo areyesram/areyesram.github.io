@@ -4,38 +4,55 @@
     {
         "Code": "ES-101",
         "Title": "Introducción al stack de Elastic",
-        "SeeAlso": [
-            { "Elastic Stack @elastic.co": "https://www.elastic.co/elastic-stack/" },
-            { "Elasticsearch @elastic.co": "https://www.elastic.co/elasticsearch/" }
-        ]
+        "Topics": [
+            "Qué es Elasticsearch",
+            "Acerca de Lucene",
+            "Elastic Stack",
+            "Bondades",
+            "Olvida lo que sabes",
+            "Interfaz de Programación",
+            "Instalación",
+            "Hello, Elastic",
+            "CRUD / Search",
+            "Document Metadata"
+        ],
+        "SeeAlso": {
+            "Elastic Stack @elastic.co": "https://www.elastic.co/elastic-stack/",
+            "Elasticsearch @elastic.co": "https://www.elastic.co/elasticsearch/"
+        }
     },
     {
         "Code": "ES-Adm",
         "Title": "Administración de Elasticsearch",
         "Topics": ["Crear un cluster", "Administrar indices", "Snapshots (backup/restore)"],
-        "SeeAlso": [
-            {
-                "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
-            }
-        ]
+        "SeeAlso": {
+            "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
+        }
     },
     {
         "Code": "ES-Bas",
         "Title": "Búsquedas básicas",
-        "SeeAlso": [
-            {
-                "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
-            }
-        ]
+        "Topics": [
+            "Search API",
+            "Valor específico / rangos",
+            "Operaciones booleanas",
+            "Consultas no estructuradas",
+            "CRUD",
+            "Análogos con SQL",
+            "Paginación"
+        ],
+        "PreReq": ["ES-101"],
+        "Files": { "Datos para ejercicios": "https://areyesram.github.io/data/ES-Bas_data.zip" },
+        "SeeAlso": {
+            "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
+        }
     },
     {
         "Code": "ES-BI",
         "Title": "Analytics (business intelligence)",
-        "SeeAlso": [
-            {
-                "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
-            }
-        ]
+        "SeeAlso": {
+            "Elasticsearch Guide / REST APIs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html"
+        }
     },
     {
         "Code": "ES-ETL",
@@ -45,17 +62,18 @@
             { "Elasticsearch": "https://www.elastic.co/downloads/elasticsearch" },
             { "Logstash": "https://www.elastic.co/downloads/logstash" }
         ],
-        "SeeAlso": [
-            { "Logstash @elastic.co": "https://www.elastic.co/logstash/" },
-            { "Beats @elastic.co": "https://www.elastic.co/beats/" }
-        ]
+        "SeeAlso": {
+            "Logstash @elastic.co": "https://www.elastic.co/logstash/",
+            "Beats @elastic.co": "https://www.elastic.co/beats/"
+        }
     },
     { "Code": "ES-FTS", "Title": "Full-text search" },
     {
         "Code": "ES-Kib",
         "Title": "Kibana",
         "Topics": ["Consola de desarrollo", "Data discovery", "Visualizaciones", "Dashboards"],
-        "SeeAlso": ["https://www.elastic.co/kibana/"]
+        "PreReq": ["ES-Bas"],
+        "SeeAlso": { "Kibana @elastic.co": "https://www.elastic.co/kibana/" }
     },
     { "Code": "Lnx-101", "Title": "Introducción a Linux" },
     { "Code": "Lnx-Bash", "Title": "Linux Bash scripting" },
@@ -165,7 +183,7 @@
         "Code": "PnP-g11n",
         "Title": "Globalización",
         "Topics": [
-            "Internacionalización (i18n)" ,
+            "Internacionalización (i18n)",
             "Localización (l10n)",
             "Formatos de fecha y moneda",
             "Traducciones y alfabetos",
