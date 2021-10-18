@@ -76,7 +76,7 @@ async function fillCalendar() {
     t.rows.add(calendar);
     t.draw();
     $("[name=when").each((_, o) => {
-        return (o.checked = parseInt(o.value) == w);
+        if (parseInt(o.value) == w) o.checked = true;
     });
     $("[name=when").on("change", evt => (window.location.href = "calendar?w=" + evt.target.value));
 }
@@ -101,9 +101,7 @@ async function loadCurso() {
     if (course.PreReq && course.PreReq.length) {
         for (let code of course.PreReq) {
             const title = (await dac.course.find(code)).Title;
-            var link = $("<a>")
-                .attr("href", `course?c=${code}`)
-                .text(`[${code}] ${title}`);
+            var link = $("<a>").attr("href", `course?c=${code}`).text(`[${code}] ${title}`);
             ul.append($("<li>").append(link));
         }
     } else {
@@ -122,9 +120,7 @@ async function loadCurso() {
                 : label;
             ul.append(
                 $("<li>")
-                    .addClass(
-                        date.toDate() > new Date() ? "fut" : o.Session ? "rec" : "norec"
-                    )
+                    .addClass(date.toDate() > new Date() ? "fut" : o.Session ? "rec" : "norec")
                     .append(link)
             );
         });
