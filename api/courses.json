@@ -1,6 +1,8 @@
 [
-    { "Code": "CB-Img", "Title": "Edición de imágenes con GIMP e Inkscape" },
-    { "Code": "CB-XL", "Title": "Excel" },
+    { "Code": "CB-Img", "Title": "Introduccón a la edición de imágenes" },
+    { "Code": "CB-GIMP", "Title": "Edición de imágenes con GIMP", "PreReq": ["CB-Img"] },
+    { "Code": "CB-Ink", "Title": "Edición de imágenes con Inkscape", "PreReq": ["CB-Img"] },
+    { "Code": "CB-XL", "Title": "Introducción a Excel" },
     {
         "Code": "ES-101",
         "Title": "Introducción al stack de Elastic",
@@ -79,7 +81,7 @@
         "SeeAlso": { "Kibana @elastic.co": "https://www.elastic.co/kibana/" }
     },
     { "Code": "Lnx-101", "Title": "Introducción a Linux" },
-    { "Code": "Lnx-Bash", "Title": "Linux Bash scripting" },
+    { "Code": "Lnx-Bash", "Title": "Linux Bash scripting", "PreReq": ["Lnx-101"] },
     {
         "Code": "NET-101",
         "Title": "Introduccion a C# y .NET",
@@ -88,18 +90,21 @@
     {
         "Code": "NET-ADO",
         "Title": ".NET - ADO.NET",
-        "Slides": "https://drive.google.com/file/d/1gXnz60Ywu7OlwmZkN3T62iiBFblXH337/view?usp=sharing"
+        "Slides": "https://drive.google.com/file/d/1gXnz60Ywu7OlwmZkN3T62iiBFblXH337/view?usp=sharing",
+        "PreReq": ["NET-OOP"]
     },
     {
         "Code": "NET-A&S",
         "Title": "Algoritmos y estructuras de datos en C#.",
-        "Slides": "https://drive.google.com/file/d/1Bb6HN-3cWouhY6VAZDVyvBCL326Er6-h/view?usp=sharing"
+        "Slides": "https://drive.google.com/file/d/1Bb6HN-3cWouhY6VAZDVyvBCL326Er6-h/view?usp=sharing",
+        "PreReq": ["NET-OOP"]
     },
-    { "Code": "NET-COM", "Tópico": "", "Title": "Componentes COM+ en C#" },
+    { "Code": "NET-COM", "Tópico": "", "Title": "Componentes COM+ en C#", "PreReq": ["NET-OOP"] },
     {
         "Code": "NET-Dbg",
         "Title": ".NET - Debugging, Logging y manejo de errores.",
-        "Slides": "https://drive.google.com/file/d/15ufih3F91Fo35c4iDRpEVTK6IVE31WWh/view?usp=sharing"
+        "Slides": "https://drive.google.com/file/d/15ufih3F91Fo35c4iDRpEVTK6IVE31WWh/view?usp=sharing",
+        "PreReq": ["NET-101"]
     },
     {
         "Code": "NET-GDI",
@@ -110,23 +115,24 @@
     {
         "Code": "NET-LINQ",
         "Title": ".NET - LINQ",
-        "Slides": "https://drive.google.com/file/d/1IOkvUJYBhdRMmdmP6pqFBI19QXU6TYP4/view"
+        "Slides": "https://drive.google.com/file/d/1IOkvUJYBhdRMmdmP6pqFBI19QXU6TYP4/view",
+        "PreReq": ["NET-OOP"]
     },
-    { "Code": "NET-MVC1", "Title": ".NET - ASP.NET MVC (parte 1)" },
-    { "Code": "NET-MVC2", "Title": ".NET - ASP.NET MVC (parte 2)" },
+    { "Code": "NET-MVC1", "Title": ".NET - ASP.NET MVC (parte 1)", "PreReq": ["NET-OOP"] },
+    { "Code": "NET-MVC2", "Title": ".NET - ASP.NET MVC (parte 2)", "PreReq": ["NET-MVC1"] },
     {
         "Code": "NET-OOP",
         "Title": "Programación orientada a objetos en C#",
         "Slides": "https://drive.google.com/file/d/1jxjwp26Ha43nAdtdyteFTztQIGEm1w2P/view?usp=sharing",
         "PreReq": ["NET-101"]
     },
-    { "Code": "NET-Ref", "Title": ".NET Reflection en C#" },
-    { "Code": "NET-Rgx", "Title": "Expresiones regulares en C#" },
-    { "Code": "NET-Ser", "Title": "Serialización en C# (XML, JSON, etc.)" },
-    { "Code": "NET-Svc", "Title": "Windows Services en C#" },
-    { "Code": "NET-Task", "Title": "Multitasking y operaciones asíncronas" },
-    { "Code": "NET-UT", "Title": "Pruebas unitarias en C#" },
-    { "Code": "NET-WCF", "Title": ".NET - ASP.NET Web Services / WCF" },
+    { "Code": "NET-Ref", "Title": ".NET Reflection en C#", "PreReq": ["NET-OOP"] },
+    { "Code": "NET-Rgx", "Title": "Expresiones regulares en C#", "PreReq": ["NET-101"] },
+    { "Code": "NET-Ser", "Title": "Serialización en C# (XML, JSON, etc.)", "PreReq": ["NET-OOP"] },
+    { "Code": "NET-Svc", "Title": "Windows Services en C#", "PreReq": ["NET-OOP"] },
+    { "Code": "NET-Task", "Title": "Multitasking y operaciones asíncronas", "PreReq": ["NET-OOP"] },
+    { "Code": "NET-UT", "Title": "Pruebas unitarias en C#", "PreReq": ["NET-101"] },
+    { "Code": "NET-WCF", "Title": ".NET - ASP.NET Web Services / WCF", "PreReq": ["NET-OOP"] },
     {
         "Code": "NET-Win",
         "Title": ".NET - Aplicaciones Windows Forms.",
@@ -151,7 +157,7 @@
         "PreReq": ["Node-101"],
         "Slides": "https://drive.google.com/file/d/1QHSbYEVc_8PbXzTyUO6_nWK5_KkHZ1Es/view?usp=sharing"
     },
-    { "Code": "Node-UT", "Tópico": "", "Title": "Pruebas unitarias en Node.js" },
+    { "Code": "Node-UT", "Tópico": "", "Title": "Pruebas unitarias en Node.js", "PreReq": ["Node-101"] },
     {
         "Code": "Node-Web",
         "Title": "Node.js Web App (Express + Pug)",
@@ -177,9 +183,7 @@
             "http://c2.com/cgi/wiki?CodeSmell",
             "http://www.codinghorror.com/blog/2006/05/code-smells.html"
         ],
-        "Software": [
-            "Visual Studio [Developer, Pro] 2008 o superior., Características: Desarrollo C#"
-        ],
+        "Software": ["Visual Studio [Developer, Pro] 2008 o superior., Características: Desarrollo C#"],
         "Slides": "https://drive.google.com/file/d/1FR30E3UqOQw2Womgf9dyQN3zFb13eJhB/view?usp=sharing"
     },
     {
@@ -192,7 +196,8 @@
             "Traducciones y alfabetos",
             "Códigos de caracteres",
             "Zonas horarias"
-        ]
+        ],
+        "PreReq": ["PnP-OOP"]
     },
     {
         "Code": "PnP-OOP",
@@ -234,10 +239,7 @@
             "http://sourcemaking.com/design_patterns",
             "https://refactoring.guru/design-patterns"
         ],
-        "Software": [
-            "Visual Studio [Developer, Pro] 2008 o superior.",
-            "- Características: Desarrollo C#"
-        ],
+        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"],
         "Slides": "https://drive.google.com/file/d/1z_Aqp50LO6DseVCNRl29E6d02-gX7Jd8/view?usp=sharing"
     },
     {
@@ -250,18 +252,14 @@
             "http://www.refactoring.com/",
             "http://sourcemaking.com/refactoring"
         ],
-        "Software": [
-            "Visual Studio [Developer, Pro] 2008 o superior.",
-            "- Características: Desarrollo C#"
-        ],
+        "Software": ["Visual Studio [Developer, Pro] 2008 o superior.", "- Características: Desarrollo C#"],
         "Slides": "https://drive.google.com/file/d/12hfSUHaBEKMr_M7VEsmuX3zP8bUf86U9/view?usp=sharing"
     },
-    { "Code": "PnP-UML", "Title": "Modelado con UML" },
+    { "Code": "PnP-UML", "Title": "Modelado con UML", "PreReq": ["PnP-OOP"] },
     { "Code": "Py-101", "Title": "Introducción a Python" },
     {
         "Code": "SQL-1",
         "Title": "SQL Server Básico",
-
         "Topics": [
             "Conceptos básicos",
             "Tipos de datos, Operadores, Funciones",
@@ -310,23 +308,26 @@
         ],
         "Slides": "https://drive.google.com/file/d/1l3p7BpzzYF4QNcufsAQjToCUnsR224H3/view?usp=sharing"
     },
-    { "Code": "SQL-Adm", "Title": "SQL Server Administración" },
-    { "Code": "SQL-CLR", "Title": "CLR Integration en SQL Server" },
+    { "Code": "SQL-Adm", "Title": "SQL Server Administración", "PreReq": ["SQL-2"] },
+    { "Code": "SQL-CLR", "Title": "CLR Integration en SQL Server", "PreReq": ["SQL-2"] },
     {
         "Code": "SQL-Des",
         "Title": "SQL Server Diseño de bases de datos",
-        "Slides": "https://drive.google.com/file/d/1PSAslgw6mQNuVb1tIMem6az5jufT0Ebo/view?usp=sharing"
+        "Slides": "https://drive.google.com/file/d/1PSAslgw6mQNuVb1tIMem6az5jufT0Ebo/view?usp=sharing",
+        "PreReq": ["SQL-2"]
     },
-    { "Code": "SQL-FTS", "Title": "SQL Server Full Text Search" },
+    { "Code": "SQL-FTS", "Title": "SQL Server Full Text Search", "PreReq": ["SQL-2"] },
     {
         "Code": "SQL-SSIS",
         "Title": "SQL Server Integration Services",
-        "Slides": "https://drive.google.com/file/d/0B764gEaunDVVMGJvZUFybGdsdkk/view?usp=sharing&resourcekey=0-YcqJFSSwmA2LBGEDNh6a4w"
+        "Slides": "https://drive.google.com/file/d/0B764gEaunDVVMGJvZUFybGdsdkk/view?usp=sharing&resourcekey=0-YcqJFSSwmA2LBGEDNh6a4w",
+        "PreReq": ["SQL-2"]
     },
     {
         "Code": "SQL-SSRS",
         "Title": "SQL Server Reporting Services",
-        "Slides": "https://drive.google.com/file/d/1_OynLMWKlvNXe3z1bRbXfA3zgGHbinnf/view?usp=sharing"
+        "Slides": "https://drive.google.com/file/d/1_OynLMWKlvNXe3z1bRbXfA3zgGHbinnf/view?usp=sharing",
+        "PreReq": ["SQL-2"]
     },
     { "Code": "Web-BS", "Title": "Introducción a Bootstrap", "PreReq": ["Web-CSS"] },
     { "Code": "Web-CSS", "Title": "CSS", "PreReq": ["Web-HTML"] },
@@ -360,12 +361,13 @@
             "Funciones",
             "Manipulación del DOM"
         ],
-        "Slides": "https://drive.google.com/file/d/1tspMUENwzVgmuOatGdg0oy67Xfqi8lRo/view?usp=sharing"
+        "Slides": "https://drive.google.com/file/d/1tspMUENwzVgmuOatGdg0oy67Xfqi8lRo/view?usp=sharing",
+        "PreReq": ["Web-HTML"]
     },
     {
         "Code": "Web-JS2",
         "Title": "JavaScript avanzado",
-        "PreReq": ["Web-JS1", "Web-HTML"],
+        "PreReq": ["Web-JS1"],
         "Topics": [
             "Callbacks y Funciones flecha",
             "AJAX",
@@ -382,7 +384,6 @@
         "PreReq": ["Web-TS1", "Node-API"],
         "Slides": "https://drive.google.com/file/d/1GKV5etFiIa3Fw3-gAh6Mb4e2HJ6fvm84/view?usp=sharing"
     },
-    { "Code": "Web-Ng2", "Title": "Angular - Parte 2", "PreReq": ["Web-Ng1"] },
     { "Code": "Web-SASS", "Title": "SASS (SCSS)", "PreReq": ["Web-CSS"] },
     {
         "Code": "Web-TS1",

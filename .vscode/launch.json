@@ -5,10 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "type": "node",
             "request": "launch",
-            "name": "Open",
-            "file": "${workspaceFolder}/index"
+            "name": "Graph",
+            "program": "${workspaceFolder}/src/graph.js",
+            "cwd": "${workspaceFolder}/src"
         }
     ]
 }
