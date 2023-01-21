@@ -32,23 +32,25 @@ function deal() {
             sounds[0].play();
             idx = 0;
             stage = "running";
+            timer = setInterval(() => {
+                if (stage == "running") {
+                    const card = deck[idx];
+                    $("#carta img").attr("src", images[card].src);
+                    sounds[card].play();
+                    idx++;
+                }
+            }, 5000);
+            $("#play").val("Pausa");
             break;
         case "running":
+            $("#play").val("Sigue");
             stage = "paused";
             break;
         case "paused":
+            $("#play").val("Pausa");
             stage = "running";
             break;
     }
-
-    timer = setInterval(() => {
-        if (stage == "running") {
-            const card = deck[idx];
-            $("#carta img").attr("src", images[card].src);
-            sounds[card].play();
-            idx++;
-        }
-    }, 5000);
 }
 
 function stop() {
