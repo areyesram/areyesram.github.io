@@ -10,6 +10,13 @@
             "name": "Graph",
             "program": "${workspaceFolder}/src/graph.js",
             "cwd": "${workspaceFolder}/src"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Load",
+            "program": "${workspaceFolder}/src/load.js",
+            "cwd": "${workspaceFolder}/src"
         }
     ]
 }

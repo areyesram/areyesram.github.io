@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "graph-format-converter": "^1.5.2"
+    "config": "^3.3.8",
+    "graph-format-converter": "^1.5.2",
+    "mysql": "^2.18.1"
   }
 }

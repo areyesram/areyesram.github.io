@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+    <head>
+        <title>Lotería</title>
+        <meta charset="UTF-8" />
+        <script
+            src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            crossorigin="anonymous"
+        ></script>
+        <style>
+            body {
+                margin: 0;
+            }
+            #carta {
+                width: 50%;
+                padding: 2em;
+                border: solid gray 1px;
+                background-color: white;
+                border-radius: 1em;
+                margin: 2em auto 0 auto;
+                box-shadow: 10px 10px 20px -2px rgba(128, 128, 128, 0.75);
+                -webkit-box-shadow: 10px 10px 20px -2px rgba(128, 128, 128, 0.75);
+                -moz-box-shadow: 10px 10px 20px -2px rgba(128, 128, 128, 0.75);
+            }
+            #carta img {
+                width: 100%;
+            }
+            #buttons {
+                margin-top: 2em;
+                text-align: center;
+            }
+            input[type="button"] {
+                height: 2em;
+                font-size: 4em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="carta">
+            <img alt="carta" src="images/0.jpg" />
+        </div>
+        <div id="buttons">
+            <input id="play" type="button" value="Corre" />
+            <input id="play" type="button" value="Espera" />
+            <input id="stop" type="button" value="Buenas" />
+            <input id="list" type="button" value="Cuáles han salido" />
+        </div>
+        <script src="loteria.js?1"></script>
+    </body>
+</html>
