@@ -58,6 +58,7 @@ function stop() {
     if (confirm("¿Seguro?")) {
         clearInterval(timer);
         $("#carta img").attr("src", `images/0.jpg`);
+        $("#play").val("Corre");
         stage = "ready";
     }
 }
