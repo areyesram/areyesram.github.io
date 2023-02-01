@@ -3,6 +3,11 @@
     <head>
         <title>Lotería</title>
         <meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+        />
         <script
             src="https://code.jquery.com/jquery-3.6.3.min.js"
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
@@ -30,10 +35,9 @@
                 margin-top: 2em;
                 text-align: center;
             }
-            input[type="button"] {
-                height: 2em;
-                padding: 0 1em;
-                margin: 0.5em;
+            button {
+                padding: 0.2em 1em;
+                margin: 0.2em;
                 font-size: 4em;
             }
         </style>
@@ -43,10 +47,19 @@
             <img alt="carta" src="images/0.jpg" />
         </div>
         <div id="buttons">
-            <input id="play" type="button" value="Corre" />
-            <input id="stop" type="button" value="Buenas" />
-            <input id="list" type="button" value="Cuáles han salido" />
+            <button id="play"><i class="bi bi-play"></i>Corre</button>
+            <button id="stop"><i class="bi bi-stop"></i>Buenas</button>
+            <button id="list">
+                <i class="bi bi-list-check"></i> Cuáles han salido
+            </button>
+            <button id="fast"><i class="bi bi-chevron-up"></i>Rápido</button>
+            <i
+                id="speed"
+                class="bi bi-5-circle"
+                style="font-size: 4em; color: #666666"
+            ></i>
+            <button id="slow"><i class="bi bi-chevron-down"></i>Lento</button>
         </div>
-        <script src="loteria.js?2"></script>
+        <script src="loteria.js?16"></script>
     </body>
 </html>

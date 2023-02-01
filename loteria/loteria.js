@@ -9,6 +9,24 @@ $("#list").on("click", () => {
     );
 });
 
+let interval = 5;
+
+$("#fast").on("click", () => {
+    if (interval > 1) {
+        interval--;
+        updateInterval();
+    }
+});
+$("#slow").on("click", () => {
+    if (interval < 9) {
+        interval++;
+        updateInterval();
+    }
+});
+function updateInterval() {
+    $("#speed").attr("class", `bi bi-${10 - interval}-circle`);
+}
+
 const sounds = new Array(1 + 54)
     .fill()
     .map((_, i) => new Audio(`sounds/${i}.mp3`));
@@ -17,10 +35,10 @@ const images = new Array(1 + 54).fill().map((_, i) => {
     image.src = `images/${i}.jpg`;
     return image;
 });
-let stage = "ready";
 
+let stage = "ready";
 let idx, deck;
-let timer;
+let timer, tick;
 
 function deal() {
     switch (stage) {
@@ -34,12 +52,16 @@ function deal() {
             stage = "running";
             timer = setInterval(() => {
                 if (stage == "running") {
+                    document.title = tick.toString();
+                    if (++tick < interval) return;
                     const card = deck[idx];
                     $("#carta img").attr("src", images[card].src);
                     sounds[card].play();
                     idx++;
+                    tick = 0;
                 }
-            }, 5000);
+            }, 1000);
+            tick = 0;
             $("#play").val("Pausa");
             break;
         case "running":
