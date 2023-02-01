@@ -62,14 +62,14 @@ function deal() {
                 }
             }, 1000);
             tick = 0;
-            $("#play").val("Pausa");
+            $("#play").html('<i class="bi bi-play"></i>Pausa');
             break;
         case "running":
-            $("#play").val("Sigue");
+            $("#play").html('<i class="bi bi-play"></i>Sigue');
             stage = "paused";
             break;
         case "paused":
-            $("#play").val("Pausa");
+            $("#play").html('<i class="bi bi-play"></i>Pausa');
             stage = "running";
             break;
     }
@@ -80,7 +80,7 @@ function stop() {
     if (confirm("¿Seguro?")) {
         clearInterval(timer);
         $("#carta img").attr("src", `images/0.jpg`);
-        $("#play").val("Corre");
+        $("#play").html('<i class="bi bi-play"></i>Corre');
         stage = "ready";
     }
 }
