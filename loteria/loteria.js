@@ -17,7 +17,7 @@ $("#fast").on("click", () => {
         updateInterval();
     }
 });
-$("#slow").on("click", () => {
+$("#slow").on("click", evt => {
     if (interval < 9) {
         interval++;
         updateInterval();
