@@ -21,9 +21,12 @@ const _snd = [
     "nope",
     "buzzer",
     "mariojump",
+    "punch",
     "robloxoof",
+    "eat",
     "huh",
     "bruh",
+    "aaah",
     "ausemer",
     "ausvote",
     "taco",
@@ -31,6 +34,8 @@ const _snd = [
     "dun",
     "batman",
     "scream",
+    "fckd",
+    "nani",
     "wrong",
     "curb"
 ];
