@@ -1,16 +1,25 @@
+body {
+    margin: 0;
+    background-color: black;
+}
+
 button {
-    border: none;
     padding: 0;
+    border: solid 2px gainsboro;
     margin: 4px;
     background-color: gainsboro;
 }
+button div {
+    margin: 0;
+}
 button img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border: none;
+    margin: 0;
 }
 button .progress {
-    height: 4px;
+    height: 6px;
     background-color: lime;
     width: 0;
 }

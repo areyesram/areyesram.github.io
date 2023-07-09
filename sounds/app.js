@@ -1,12 +1,12 @@
 function loadSounds() {
     for (let o of _snd) {
-        const audio = $("<audio>").append(
-            $("<source>").attr("src", `file/${o}.m4a`)
-        );
+        const audio = $("<audio>").append($("<source>").attr("src", `file/${o}.m4a`));
         audio.on("play", evt => {});
         audio.on("ended", evt => {
             const o = evt.currentTarget;
-            $(o).parent().find(".progress").css("width", "0");
+            const p = $(o).parent();
+            p.find(".progress").css("width", "0");
+            p.css("border-color", "");
         });
         audio.on("timeupdate", evt => {
             const o = evt.currentTarget;
@@ -23,9 +23,11 @@ function loadSounds() {
             const o = audio[0];
             if (o.paused) {
                 o.play();
+                audio.parent().css("border-color", "lime");
             } else {
                 o.pause();
                 o.currentTime = 0;
+                audio.parent().css("border-color", "");
             }
         });
         $("#container").append(button);
@@ -34,8 +36,14 @@ function loadSounds() {
 
 const _snd = [
     "rewind",
+    "violin",
+    "piano",
+    "upsad",
+    "evil",
     "bob",
     "tss",
+    "gangsta",
+    "cheer",
     "wow",
     "wassup",
     "omg",
@@ -59,11 +67,16 @@ const _snd = [
     "taco",
     "laword",
     "dun",
+    "bad",
+    "illuminati",
     "batman",
     "scream",
     "gta",
+    "paloma",
     "fckd",
     "nani",
+    "niños",
     "wrong",
+    "fitness",
     "curb"
 ];
