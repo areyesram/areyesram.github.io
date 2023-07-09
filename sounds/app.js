@@ -71,6 +71,7 @@ const _snd = [
     "illuminati",
     "batman",
     "scream",
+    "nomine",
     "gta",
     "paloma",
     "fckd",
