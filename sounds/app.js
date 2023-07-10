@@ -41,8 +41,12 @@ const _snd = [
     "upsad",
     "evil",
     "bob",
-    "tss",
+    "mad",
+    "happen",
+    "ameno",
     "gangsta",
+    "tss",
+    "wah",
     "cheer",
     "wow",
     "wassup",
@@ -78,6 +82,7 @@ const _snd = [
     "nani",
     "niños",
     "wrong",
+    "cena",
     "fitness",
     "curb"
 ];
