@@ -3,22 +3,22 @@ body {
     background-color: black;
 }
 
-button {
+#buttons button {
     padding: 0;
     border: solid 2px gainsboro;
-    margin: 4px;
+    /* margin: 4px; */
     background-color: gainsboro;
 }
-button div {
+#buttons button div {
     margin: 0;
 }
-button img {
+#buttons button img {
     width: 180px;
     height: 180px;
     border: none;
     margin: 0;
 }
-button .progress {
+#buttons button .progress {
     height: 6px;
     background-color: lime;
     width: 0;
