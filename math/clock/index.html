@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+                display: flex;
+                height: 100vh;
+                background-color: #f0f0f0; /* Set your desired background color */
+            }
+            .clock-container {
+                width: 100vh;
+                height: 100vh;
+                display: inline-block;
+            }
+            div.q {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+                    "Open Sans", "Helvetica Neue", sans-serif;
+                font-size: 5em;
+            }
+            div.a {
+                margin: 1em;
+            }
+            div.a input {
+                font-family: "Times New Roman", Times, serif;
+                font-size: 4em;
+                line-height: 2em;
+				border: outset 3px gray;
+                border-radius: 0.5em;
+                padding: 0 0.5em;
+                cursor: pointer;
+            }
+            div.a input.right {
+                background-color: lightgreen;
+            }
+            div.a input.wrong {
+                background-color: lightcoral;
+            }
+        </style>
+        <title>Reloj análogo</title>
+    </head>
+    <body>
+        <div class="clock-container">
+            <canvas id="clock" style="width: 90%; height: 90%; margin: 5vh 0 0 5vh" width="1000" height="1000"></canvas>
+        </div>
+        <div style="width: calc(100% - 100vh); height: 100vh; display: inline-block; padding-top: 10em">
+            <div class="q">¿Qué hora es?</div>
+            <div class="a">
+                <input type="button" id="a0" onclick="grade(0);" />
+            </div>
+            <div class="a">
+                <input type="button" id="a1" onclick="grade(1);" />
+            </div>
+            <div class="a">
+                <input type="button" id="a2" onclick="grade(2);" />
+            </div>
+        </div>
+
+        <script>
+            let correctanswer = undefined;
+            let answers = undefined;
+
+            makeProblem();
+
+            function makeProblem() {
+                const hour = rand(12);
+                const minute = rand(60 / 5) * 5;
+                const date = new Date(2000, 0, 1, hour, minute, 0, 0);
+                const hourGood = hour == 0 ? 12 : hour;
+                const hourBad = minute == 0 ? 12 : minute / 5;
+                const hourRand = rand(12) + 1;
+                const minuteRand = rand(60 / 5) * 5;
+                drawClock(date);
+                answers = [
+                    {
+                        text:
+                            minute == 0 && Math.random() < 0.5
+                                ? `La${hourGood == 1 ? "" : "s"} ${hourGood} en punto.`
+                                : minute == 15 && Math.random() < 0.5
+                                ? `La${hourGood == 1 ? "" : "s"} ${hourGood} y cuarto.`
+                                : minute == 30 && Math.random() < 0.5
+                                ? `La${hourGood == 1 ? "" : "s"} ${hourGood} y media.`
+                                : minute == 45 && Math.random() < 0.5
+                                ? `Cuarto a la${nextHour(hourGood) == 1 ? "" : "s"} ${nextHour(hourGood)}.`
+                                : `La${hourGood == 1 ? "" : "s"} ${hourGood} con ${minute} minutos.`,
+                        correct: true
+                    },
+                    {
+                        text:
+                            Math.random() < 0.1
+                                ? `La${hourBad == 1 ? "" : "s"} ${hourBad} y media`
+                                : Math.random() < 0.2
+                                ? `La${hourBad == 1 ? "" : "s"} ${hourBad} y cuarto`
+                                : Math.random() < 0.3
+                                ? `Cuarto a la${hourBad == 1 ? "" : "s"} ${hourBad}`
+                                : hourGood == 12 && Math.random() < 0.5
+                                ? `La${hourBad == 1 ? "" : "s"} ${hourBad} en punto.`
+                                : `La${hourBad == 1 ? "" : "s"} ${hourBad} con ${hourGood} minutos.`
+                    },
+                    {
+                        text:
+                            Math.random() < 0.1
+                                ? `La${hourRand == 1 ? "" : "s"} ${hourRand} y media`
+                                : Math.random() < 0.2
+                                ? `La${hourRand == 1 ? "" : "s"} ${hourRand} y cuarto`
+                                : Math.random() < 0.3
+                                ? `Cuarto a la${hourRand == 1 ? "" : "s"} ${hourRand}`
+                                : Math.random() < 0.4
+                                ? `La${hourRand == 1 ? "" : "s"} ${hourRand} en punto.`
+                                : `La${hourRand == 1 ? "" : "s"} ${hourRand} con ${minuteRand} minutos.`
+                    }
+                ];
+                shuffle(answers);
+                for (let i = 0; i < answers.length; i++) {
+                    const button = document.getElementById("a" + i);
+                    button.value = answers[i].text;
+                    if (answers[i].correct) correctanswer = i;
+                }
+            }
+
+            function drawClock(date) {
+                const canvas = document.getElementById("clock");
+                const context = canvas.getContext("2d");
+                const radius = canvas.width / 2;
+
+                // Clear the canvas
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw clock face
+                context.beginPath();
+                context.arc(radius, radius, radius - 5, 0, 2 * Math.PI);
+                context.fillStyle = "#fff";
+                context.fill();
+                context.lineWidth = 5;
+                context.strokeStyle = "#000";
+                context.stroke();
+
+                context.beginPath();
+                context.arc(radius, radius, 5, 0, 2 * Math.PI);
+                context.fillStyle = "#000";
+                context.fill();
+
+                for (let i = 1; i <= 12; i++) {
+                    const angle = ((i - 3) * (Math.PI * 2)) / 12;
+                    const x = radius + radius * 0.8 * Math.cos(angle);
+                    const y = radius + radius * 0.8 * Math.sin(angle);
+
+                    context.font = "8em Serif";
+                    context.fillStyle = "#000";
+                    context.textAlign = "center";
+                    context.textBaseline = "middle";
+                    context.fillText(i, x, y);
+                }
+
+                const hours = date.getHours() % 12;
+                const minutes = date.getMinutes();
+                const seconds = date.getSeconds();
+
+                drawHand(radius * 0.5, (hours + minutes / 60) * 30, 8);
+                drawHand(radius * 0.7, (minutes + seconds / 60) * 6, 4);
+
+                function drawHand(length, angle, width) {
+                    const x = radius + length * Math.cos((angle - 90) * (Math.PI / 180));
+                    const y = radius + length * Math.sin((angle - 90) * (Math.PI / 180));
+
+                    context.beginPath();
+                    context.moveTo(radius, radius);
+                    context.lineTo(x, y);
+                    context.lineWidth = width;
+                    context.lineCap = "round";
+                    context.strokeStyle = "#000";
+                    context.stroke();
+                }
+            }
+
+            function rand(n) {
+                return Math.floor(Math.random() * n);
+            }
+
+            function previousHour(hour) {
+                if (hour > 1) return hour - 1;
+                else return 12;
+            }
+
+            function nextHour(hour) {
+                if (hour < 12) return hour + 1;
+                else return 1;
+            }
+
+            function shuffle(arr) {
+                for (let i = 0; i < answers.length - 1; i++) {
+                    const j = i + Math.floor(Math.random() * (answers.length - i));
+                    if (j != i) {
+                        const temp = answers[j];
+                        answers[j] = answers[i];
+                        answers[i] = temp;
+                    }
+                }
+            }
+
+            function grade(answer) {
+                const buttons = [...document.getElementsByTagName("input")];
+                buttons.forEach((o, i) => {
+                    if (i == answer) {
+                        o.className = answer == correctanswer ? "right" : "wrong";
+                    } else {
+                        o.disabled = true;
+                    }
+                });
+                setTimeout(() => {
+                    buttons.forEach(o => {
+                        o.className = undefined;
+                        o.disabled = false;
+                    });
+                    makeProblem();
+                }, 2000);
+            }
+        </script>
+    </body>
+</html>
