@@ -4,75 +4,24 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Full-Width Split View</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            html,
-            body {
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                display: flex;
-                font-family: Arial, sans-serif;
-            }
-
-            .container {
-                display: flex;
-                width: 100%;
-                height: 100vh;
-            }
-
-            .left,
-            .right {
-                height: 100%;
-            }
-
-            .left {
-                flex: 1;
-                padding: 20px;
-                background-color: #f0f0f0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            textarea {
-                width: 90%;
-                height: 90%;
-                resize: none;
-                font-size: 1rem;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-
-            .right {
-                flex: 1;
-                background-color: #e0e0e0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            canvas {
-                width: 90%;
-                height: 90%;
-                border: 1px solid #333;
-                background-color: #fff;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <div class="container">
+            <div>
+                <div class="button-group">
+                    <div><button>x</button></div>
+                    <div><button>y</button></div>
+                    <div><button>z</button></div>
+                </div>
+            </div>
             <div class="left">
                 <textarea id="code"></textarea>
             </div>
             <div class="right">
-                <canvas id="canvas"></canvas>
+                <div>
+                    <canvas id="canvas"></canvas>
+                </div>
             </div>
         </div>
 

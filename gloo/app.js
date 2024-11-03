@@ -1,29 +1,6 @@
 "use strict";
-
 const canvas = document.getElementById("canvas");
-canvas.addEventListener("click", _ => runCode());
-
-const isInt = s => Number.isInteger(parseInt(s));
-const knownColors = [
-    "red",
-    "green",
-    "blue",
-    "yellow",
-    "orange",
-    "purple",
-    "violet",
-    "pink",
-    "brown",
-    "skyblue",
-    "teal",
-    "magenta",
-    "black",
-    "white",
-    "gray",
-    "silver"
-];
-
-function runCode() {
+canvas.addEventListener("click", _ => {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
 
@@ -39,9 +16,17 @@ function runCode() {
         lines: false
     };
     const code = document.getElementById("code").value.split("\n");
+    runCode(gloo, code);
+});
 
-    gloo.ctx.beginPath();
-    for (let line of code) {
+const isInt = s => Number.isInteger(parseInt(s));
+const deg2rad = deg => (deg * Math.PI) / 180;
+const colors = "red,green,blue,yellow,orange,purple,violet,pink,brown,skyblue,teal,magenta,black,white,gray,silver".split(",");
+
+function runCode(gloo, code) {
+    // gloo.ctx.beginPath();
+    for (let i = 0; i < code.length; i++) {
+        const line = code[i];
         const stat = parse(line);
         switch (stat.opcode) {
             case "noop":
@@ -65,6 +50,8 @@ function runCode() {
                 if (stat.args.length === 1 && ["up", "down"].includes(stat.args[0])) {
                     gloo.pen = stat.args[0] === "down";
                     gloo.ctx.moveTo(gloo.x, gloo.y);
+                } else {
+                    window.alert(`I don't undestand ${line}`);
                 }
                 break;
             case "fore":
@@ -72,25 +59,28 @@ function runCode() {
                 draw(gloo, stat);
                 break;
             case "right":
-                if (stat.args.length === 1 && isInt(stat.args[0])) {
-                    gloo.angle += parseInt(stat.args[0]);
-                    gloo.dx = Math.cos(deg2rad(gloo.angle));
-                    gloo.dy = Math.sin(deg2rad(gloo.angle));
-                }
-                break;
             case "left":
-                if (stat.args.length === 1 && isInt(stat.args[0])) {
-                    gloo.angle -= parseInt(stat.args[0]);
-                    gloo.dx = Math.cos(deg2rad(gloo.angle));
-                    gloo.dy = Math.sin(deg2rad(gloo.angle));
+                turn(gloo, stat);
+                break;
+            case "repeat":
+                const block = [];
+                do {
+                    i++;
+                    if (code[i] === "}") break;
+                    block.push(code[i]);
+                } while (code[i] !== undefined);
+                for (let j = 0; j < parseInt(stat.args[0]); j++) {
+                    runCode(gloo, block);
                 }
+                i++;
                 break;
             default:
                 debugger;
                 break;
-        }
+        }   
     }
     gloo.ctx.stroke();
+    console.log("stroke");
 }
 
 function draw(gloo, stat) {
@@ -101,6 +91,15 @@ function draw(gloo, stat) {
         gloo.y += len * gloo.dy;
         gloo.ctx[gloo.pen ? "lineTo" : "moveTo"](gloo.x, gloo.y);
         gloo.lines = true;
+    }
+}
+
+function turn(gloo, stat) {
+    if (stat.args.length === 1 && isInt(stat.args[0])) {
+        const dir = stat.opcode === "right" ? 1 : -1;
+        gloo.angle += dir * parseInt(stat.args[0]);
+        gloo.dx = Math.cos(deg2rad(gloo.angle));
+        gloo.dy = Math.sin(deg2rad(gloo.angle));
     }
 }
 
@@ -119,12 +118,4 @@ function parse(line) {
         return stat;
     }
     debugger;
-    // paper { color | r,g,b }
-    // go { x, y | home }
-    // move w, h
-    // face angle
-}
-
-function deg2rad(deg) {
-    return (deg * Math.PI) / 180;
 }
