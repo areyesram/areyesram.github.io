@@ -50,8 +50,8 @@ function runCode(gloo, code) {
                     gloo.x = canvas.width / 2;
                     gloo.y = canvas.height / 2;
                 } else if (stat.args.length === 2 && stat.args.every(o => isInt(o))) {
-                    gloo.x = parseInt(stat.args[0]);
-                    gloo.y = parseInt(stat.args[1]);
+                    gloo.x = canvas.width / 2 + parseInt(stat.args[0]);
+                    gloo.y = canvas.height / 2 + parseInt(stat.args[1]);
                 } else {
                     continue;
                 }
@@ -98,7 +98,7 @@ function turn(gloo, stat) {
 function parse(line) {
     line = line.trim();
     if (line === "") return { opcode: "noop" };
-    const re = /[a-zA-Z]+|\d+|,/g;
+    const re = /[a-zA-Z]+|-?\d+|,/g;
     const tokens = [];
     let match;
     while ((match = re.exec(line)) !== null) tokens.push(match[0]);
