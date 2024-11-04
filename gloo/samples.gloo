@@ -42,7 +42,35 @@ right 60
 fore 100
 
 pen down
-repeat 3 {
+repeat 10 {
   right 15
   fore 20
 }
+
+repeat 8 {
+  pen down
+  fore 40
+  pen up
+  fore 20
+  right 45
+}
+
+repeat 36 {
+  pen down
+  fore 300
+  pen up
+  back 300
+  right 10
+}
+
+pen down
+repeat 36 {
+  fore 100
+  right 20
+  fore 100
+  right 20
+  fore 100
+  go home
+  left 30
+}
+

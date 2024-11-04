@@ -45,6 +45,18 @@ function runCode(gloo, code) {
             case "left":
                 turn(gloo, stat);
                 break;
+            case "go":
+                if (stat.args.length === 1 && stat.args[0] === "home") {
+                    gloo.x = canvas.width / 2;
+                    gloo.y = canvas.height / 2;
+                } else if (stat.args.length === 2 && stat.args.every(o => isInt(o))) {
+                    gloo.x = parseInt(stat.args[0]);
+                    gloo.y = parseInt(stat.args[1]);
+                } else {
+                    continue;
+                }
+                gloo.ctx.moveTo(gloo.x, gloo.y);
+                break;
             case "repeat":
                 const block = [];
                 do {
