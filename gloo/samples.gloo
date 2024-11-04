@@ -1,0 +1,48 @@
+pen down
+ink red
+fore 100
+right 60
+fore 100
+right 60
+fore 100
+ink blue
+right 60
+fore 100
+right 60
+fore 100
+right 60
+fore 100
+back 100
+ink black
+right 60
+fore 100
+
+pen down
+ink red
+fore 100
+pen up
+fore 100
+ink blue
+pen down
+fore 100
+right 60
+fore 100
+right 60
+fore 100
+right 60
+fore 100
+pen up
+fore 100
+ink red
+pen down
+fore 100
+right 60
+fore 100
+right 60
+fore 100
+
+pen down
+repeat 3 {
+  right 15
+  fore 20
+}

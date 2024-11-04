@@ -1,9 +1,9 @@
 "use strict";
+
 const canvas = document.getElementById("canvas");
 canvas.addEventListener("click", _ => {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
-
     const gloo = {
         ctx: canvas.getContext("2d"),
         x: canvas.width / 2,
@@ -11,40 +11,23 @@ canvas.addEventListener("click", _ => {
         dx: 1,
         dy: 0,
         angle: 0,
-        pen: false,
-        ink: "black",
-        lines: false
+        pen: false
     };
     const code = document.getElementById("code").value.split("\n");
+    gloo.ctx.beginPath();
     runCode(gloo, code);
+    gloo.ctx.stroke();
 });
 
 const isInt = s => Number.isInteger(parseInt(s));
 const deg2rad = deg => (deg * Math.PI) / 180;
-const colors = "red,green,blue,yellow,orange,purple,violet,pink,brown,skyblue,teal,magenta,black,white,gray,silver".split(",");
 
 function runCode(gloo, code) {
-    // gloo.ctx.beginPath();
     for (let i = 0; i < code.length; i++) {
         const line = code[i];
         const stat = parse(line);
         switch (stat.opcode) {
             case "noop":
-                break;
-            case "ink":
-                if (gloo.lines) {
-                    gloo.ctx.stroke();
-                }
-                if (stat.args.length === 1 && knownColors.includes(stat.args[0])) {
-                    gloo.ctx.strokeStyle = stat.args[0];
-                } else if (stat.args.length === 3 && stat.args.every(o => isInt(o))) {
-                    gloo.ctx.strokeStyle = ` rgb(${stat.args.join(",")})`;
-                }
-                if (gloo.lines) {
-                    gloo.ctx.beginPath();
-                    gloo.ctx.moveTo(gloo.x, gloo.y);
-                    gloo.lines = false;
-                }
                 break;
             case "pen":
                 if (stat.args.length === 1 && ["up", "down"].includes(stat.args[0])) {
@@ -75,12 +58,9 @@ function runCode(gloo, code) {
                 i++;
                 break;
             default:
-                debugger;
                 break;
-        }   
+        }
     }
-    gloo.ctx.stroke();
-    console.log("stroke");
 }
 
 function draw(gloo, stat) {
@@ -117,5 +97,4 @@ function parse(line) {
         }
         return stat;
     }
-    debugger;
 }
