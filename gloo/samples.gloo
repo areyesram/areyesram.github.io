@@ -74,3 +74,81 @@ repeat 36 {
   left 30
 }
 
+pen down
+go 0,100
+fore 200
+
+pen down
+repeat 4 {
+  fore 100
+  left 120
+  fore 100
+  left 120
+  fore 100
+  left 120
+  fore 100
+  right 90
+}
+
+pen down
+go 0,-190
+fore 100
+right 60
+repeat 5 {
+  fore 200
+  right 60
+}
+right 60
+fore 100
+
+pen down
+repeat 7 {
+  fore 300
+  right 103
+}
+
+pen down
+repeat 5 {
+  fore 300
+  right 144
+}
+
+pen down
+fore 100
+right 90
+fore 100
+right 90
+fore 200
+right 90
+fore 100
+right 45
+fore 72
+right 90
+fore 72
+pen up
+right 45
+fore 100
+right 90
+fore 25
+right 90
+pen down
+fore 75
+left 90
+fore 50
+left 90
+fore 75
+
+pen down
+repeat 3 {
+  fore 100
+  right 120
+}
+repeat 4 {
+  fore 100
+  right 90
+}
+repeat 5 {
+  fore 100
+  right 72
+}
+

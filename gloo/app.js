@@ -24,7 +24,7 @@ const deg2rad = deg => (deg * Math.PI) / 180;
 
 function runCode(gloo, code) {
     for (let i = 0; i < code.length; i++) {
-        const line = code[i];
+        const line = code[i].trim();
         const stat = parse(line);
         switch (stat.opcode) {
             case "noop":
@@ -67,7 +67,6 @@ function runCode(gloo, code) {
                 for (let j = 0; j < parseInt(stat.args[0]); j++) {
                     runCode(gloo, block);
                 }
-                i++;
                 break;
             default:
                 break;
@@ -96,7 +95,6 @@ function turn(gloo, stat) {
 }
 
 function parse(line) {
-    line = line.trim();
     if (line === "") return { opcode: "noop" };
     const re = /[a-zA-Z]+|-?\d+|,/g;
     const tokens = [];
