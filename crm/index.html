@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>LocalStorage CRUD</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            form {
+                margin-bottom: 20px;
+                padding: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #f5f5f5;
+            }
+            input,
+            button {
+                padding: 8px;
+                margin: 5px 0;
+            }
+            button {
+                cursor: pointer;
+            }
+            .actions {
+                display: flex;
+                gap: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>LocalStorage CRUD Application</h1>
+
+        <form id="itemForm">
+            <input type="hidden" id="itemId" />
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required />
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required />
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" />
+            </div>
+            <button type="submit">Save</button>
+            <button type="button" id="cancelBtn">Cancel</button>
+        </form>
+
+        <table id="itemsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Items will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+
+        <script src="app.js"></script>
+    </body>
+</html>
