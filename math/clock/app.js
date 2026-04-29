@@ -5,11 +5,22 @@ function makeProblem() {
     const minute = rand(60 / 5) * 5;
     const date = new Date(2000, 0, 1, hour, minute, 0, 0);
     drawClock(date);
+    
     const answers = [
-        { text: hourText(hour, minute), correct: true },
-        { text: hourText(Math.round(minute / 5), hour * 5) },
-        { text: hourText(hour, Math.floor(minute / 5)) }
+        { text: hourText(hour, minute), correct: true }
     ];
+    const addDistractor = (h, m) => {
+        const text = hourText(h, m);
+        if (!answers.some(a => a.text === text)) {
+            answers.push({ text });
+        }
+    };
+    addDistractor(Math.round(minute / 5), hour * 5);
+    addDistractor(hour, Math.floor(minute / 5));
+    while (answers.length < 3) {
+        addDistractor(rand(12), rand(60 / 5) * 5);
+    }
+
     shuffle(answers);
     for (let i = 0; i < answers.length; i++) {
         const button = document.getElementById("a" + i);
@@ -28,7 +39,7 @@ function hourText(hour, minute) {
     if (hour == 0) hour = 12;
     const pl1 = hour == 1 ? "" : "s";
     const pl2 = nextHour(hour) == 1 ? "" : "s";
-    if (minute == 0 && Math.random() < 0.5) return `La${pl1} ${hour} en punto.`;
+    if (minute == 0) return `La${pl1} ${hour} en punto.`;
     if (minute == 15 && Math.random() < 0.5) return `La${pl1} ${hour} y cuarto.`;
     if (minute == 30 && Math.random() < 0.5) return `La${pl1} ${hour} y media.`;
     if (minute == 45 && Math.random() < 0.5) return `Cuarto a la${pl2} ${nextHour(hour)}.`;
